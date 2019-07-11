@@ -24,10 +24,6 @@ static const PDLaunchTaskName __pd_exp_task_##taskname##__ = {#taskname, #classn
 
 @interface PDLaunchManager : NSObject
 
-@property (class, strong, readonly) PDLaunchManager *defaultManager;
-
-- (void)launch;
-
 @end
 
 NS_ASSUME_NONNULL_END

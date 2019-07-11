@@ -13,6 +13,7 @@
 #import <mach-o/getsect.h>
 #import <QuartzCore/QuartzCore.h>
 #import "PDPerformLab.h"
+#import <UIKit/UIKit.h>
 
 @interface PDLaunchManager ()
 
@@ -103,6 +104,16 @@ static PDLaunchManager *__launchManager;
     }
 }
 
+#pragma mark - Notification Methods
+- (void)listen {
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(applicationDidFinishLaunchingWithOptions:) name:UIApplicationDidFinishLaunchingNotification object:nil];
+}
+
+- (void)applicationDidFinishLaunchingWithOptions:(NSNotification *)notification {
+    [self launch];
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
+}
+
 #pragma mark - Execute Methods
 - (void)executeHighestTasks {
     NSMutableArray<PDLaunchTask *> *tasks = self.tasks[@(PDLaunchTaskPriorityHighest)];
@@ -150,3 +161,8 @@ static PDLaunchManager *__launchManager;
 }
 
 @end
+
+__attribute__((constructor))
+static inline void launch(void) {
+    [[PDLaunchManager defaultManager] listen];
+}
