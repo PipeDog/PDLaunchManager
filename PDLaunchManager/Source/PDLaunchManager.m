@@ -77,11 +77,6 @@ static PDLaunchManager *__launchManager;
         [obj sortUsingComparator:^NSComparisonResult(PDLaunchTask * _Nonnull obj1, PDLaunchTask * _Nonnull obj2) {
             return [obj1 subPriority] < [obj2 subPriority];
         }];
-        
-        NSLog(@">>>>>>>>>>>>>>>>>>>>>>>> pri => %zd\n", (NSInteger)[obj.firstObject priority]);
-        for (PDLaunchTask *item in obj) {
-            NSLog(@"sub => %zd", [item subPriority]);
-        }
     }];
 }
 
