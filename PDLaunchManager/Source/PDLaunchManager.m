@@ -51,6 +51,7 @@ static PDLaunchManager *__launchManager;
     self.displayLink = [CADisplayLink displayLinkWithTarget:self selector:@selector(tick:)];
     [self.displayLink addToRunLoop:[NSRunLoop currentRunLoop] forMode:NSRunLoopCommonModes];
     
+    // Warning: Do not modify the following order.
     [self executeHighestTasks];
     [self executeAsyncInSubThreadTasks];
     [self executeAsyncInMainThreadTasks];
