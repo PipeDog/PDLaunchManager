@@ -15,6 +15,23 @@
 		DD6CBBF522D73B79006E395B /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = DD6CBBF422D73B79006E395B /* main.m */; };
 		DD6CBBFF22D73B7A006E395B /* PDLaunchManagerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = DD6CBBFE22D73B7A006E395B /* PDLaunchManagerTests.m */; };
 		DD6CBC0A22D73B7A006E395B /* PDLaunchManagerUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = DD6CBC0922D73B7A006E395B /* PDLaunchManagerUITests.m */; };
+		DD6CBC1D22D73BB1006E395B /* PDLaunchTask.m in Sources */ = {isa = PBXBuildFile; fileRef = DD6CBC1C22D73BB1006E395B /* PDLaunchTask.m */; };
+		DD6CBC2022D73BBC006E395B /* PDLaunchManager.m in Sources */ = {isa = PBXBuildFile; fileRef = DD6CBC1F22D73BBC006E395B /* PDLaunchManager.m */; };
+		DD6CBC2322D73E75006E395B /* PDPerformLab.m in Sources */ = {isa = PBXBuildFile; fileRef = DD6CBC2222D73E75006E395B /* PDPerformLab.m */; };
+		DD6CBC2622D7436C006E395B /* PDTest1LaunchTask.m in Sources */ = {isa = PBXBuildFile; fileRef = DD6CBC2522D7436C006E395B /* PDTest1LaunchTask.m */; };
+		DD6CBC2A22D743C6006E395B /* PDTest2LaunchTask.m in Sources */ = {isa = PBXBuildFile; fileRef = DD6CBC2922D743C6006E395B /* PDTest2LaunchTask.m */; };
+		DD6CBC3022D743F4006E395B /* PDTest3LaunchTask.m in Sources */ = {isa = PBXBuildFile; fileRef = DD6CBC2F22D743F4006E395B /* PDTest3LaunchTask.m */; };
+		DD6CBC3322D7440F006E395B /* PDTest4LaunchTask.m in Sources */ = {isa = PBXBuildFile; fileRef = DD6CBC3222D7440F006E395B /* PDTest4LaunchTask.m */; };
+		DD6CBC3622D74452006E395B /* PDTest5LaunchTask.m in Sources */ = {isa = PBXBuildFile; fileRef = DD6CBC3522D74452006E395B /* PDTest5LaunchTask.m */; };
+		DD6CBC3922D74470006E395B /* PDTest6LaunchTask.m in Sources */ = {isa = PBXBuildFile; fileRef = DD6CBC3822D74470006E395B /* PDTest6LaunchTask.m */; };
+		DD6CBC3C22D74478006E395B /* PDTest7LaunchTask.m in Sources */ = {isa = PBXBuildFile; fileRef = DD6CBC3B22D74478006E395B /* PDTest7LaunchTask.m */; };
+		DD6CBC3F22D74482006E395B /* PDTest8LaunchTask.m in Sources */ = {isa = PBXBuildFile; fileRef = DD6CBC3E22D74482006E395B /* PDTest8LaunchTask.m */; };
+		DD6CBC4222D7448B006E395B /* PDTest9LaunchTask.m in Sources */ = {isa = PBXBuildFile; fileRef = DD6CBC4122D7448B006E395B /* PDTest9LaunchTask.m */; };
+		DD6CBC4522D74494006E395B /* PDTest10LaunchTask.m in Sources */ = {isa = PBXBuildFile; fileRef = DD6CBC4422D74494006E395B /* PDTest10LaunchTask.m */; };
+		DD6CBC4822D7449F006E395B /* PDTest11LaunchTask.m in Sources */ = {isa = PBXBuildFile; fileRef = DD6CBC4722D7449F006E395B /* PDTest11LaunchTask.m */; };
+		DD6CBC4B22D744AA006E395B /* PDTest12LaunchTask.m in Sources */ = {isa = PBXBuildFile; fileRef = DD6CBC4A22D744AA006E395B /* PDTest12LaunchTask.m */; };
+		DD6CBC4E22D744B3006E395B /* PDTest13LaunchTask.m in Sources */ = {isa = PBXBuildFile; fileRef = DD6CBC4D22D744B3006E395B /* PDTest13LaunchTask.m */; };
+		DD6CBC5122D744BD006E395B /* PDTest14LaunchTask.m in Sources */ = {isa = PBXBuildFile; fileRef = DD6CBC5022D744BD006E395B /* PDTest14LaunchTask.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,6 +68,40 @@
 		DD6CBC0522D73B7A006E395B /* PDLaunchManagerUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PDLaunchManagerUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		DD6CBC0922D73B7A006E395B /* PDLaunchManagerUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PDLaunchManagerUITests.m; sourceTree = "<group>"; };
 		DD6CBC0B22D73B7A006E395B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		DD6CBC1B22D73BB1006E395B /* PDLaunchTask.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PDLaunchTask.h; sourceTree = "<group>"; };
+		DD6CBC1C22D73BB1006E395B /* PDLaunchTask.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PDLaunchTask.m; sourceTree = "<group>"; };
+		DD6CBC1E22D73BBC006E395B /* PDLaunchManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PDLaunchManager.h; sourceTree = "<group>"; };
+		DD6CBC1F22D73BBC006E395B /* PDLaunchManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PDLaunchManager.m; sourceTree = "<group>"; };
+		DD6CBC2122D73E75006E395B /* PDPerformLab.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PDPerformLab.h; sourceTree = "<group>"; };
+		DD6CBC2222D73E75006E395B /* PDPerformLab.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PDPerformLab.m; sourceTree = "<group>"; };
+		DD6CBC2422D7436C006E395B /* PDTest1LaunchTask.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PDTest1LaunchTask.h; sourceTree = "<group>"; };
+		DD6CBC2522D7436C006E395B /* PDTest1LaunchTask.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PDTest1LaunchTask.m; sourceTree = "<group>"; };
+		DD6CBC2822D743C6006E395B /* PDTest2LaunchTask.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PDTest2LaunchTask.h; sourceTree = "<group>"; };
+		DD6CBC2922D743C6006E395B /* PDTest2LaunchTask.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PDTest2LaunchTask.m; sourceTree = "<group>"; };
+		DD6CBC2E22D743F4006E395B /* PDTest3LaunchTask.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PDTest3LaunchTask.h; sourceTree = "<group>"; };
+		DD6CBC2F22D743F4006E395B /* PDTest3LaunchTask.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PDTest3LaunchTask.m; sourceTree = "<group>"; };
+		DD6CBC3122D7440F006E395B /* PDTest4LaunchTask.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PDTest4LaunchTask.h; sourceTree = "<group>"; };
+		DD6CBC3222D7440F006E395B /* PDTest4LaunchTask.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PDTest4LaunchTask.m; sourceTree = "<group>"; };
+		DD6CBC3422D74452006E395B /* PDTest5LaunchTask.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PDTest5LaunchTask.h; sourceTree = "<group>"; };
+		DD6CBC3522D74452006E395B /* PDTest5LaunchTask.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PDTest5LaunchTask.m; sourceTree = "<group>"; };
+		DD6CBC3722D74470006E395B /* PDTest6LaunchTask.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PDTest6LaunchTask.h; sourceTree = "<group>"; };
+		DD6CBC3822D74470006E395B /* PDTest6LaunchTask.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PDTest6LaunchTask.m; sourceTree = "<group>"; };
+		DD6CBC3A22D74478006E395B /* PDTest7LaunchTask.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PDTest7LaunchTask.h; sourceTree = "<group>"; };
+		DD6CBC3B22D74478006E395B /* PDTest7LaunchTask.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PDTest7LaunchTask.m; sourceTree = "<group>"; };
+		DD6CBC3D22D74482006E395B /* PDTest8LaunchTask.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PDTest8LaunchTask.h; sourceTree = "<group>"; };
+		DD6CBC3E22D74482006E395B /* PDTest8LaunchTask.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PDTest8LaunchTask.m; sourceTree = "<group>"; };
+		DD6CBC4022D7448B006E395B /* PDTest9LaunchTask.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PDTest9LaunchTask.h; sourceTree = "<group>"; };
+		DD6CBC4122D7448B006E395B /* PDTest9LaunchTask.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PDTest9LaunchTask.m; sourceTree = "<group>"; };
+		DD6CBC4322D74494006E395B /* PDTest10LaunchTask.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PDTest10LaunchTask.h; sourceTree = "<group>"; };
+		DD6CBC4422D74494006E395B /* PDTest10LaunchTask.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PDTest10LaunchTask.m; sourceTree = "<group>"; };
+		DD6CBC4622D7449F006E395B /* PDTest11LaunchTask.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PDTest11LaunchTask.h; sourceTree = "<group>"; };
+		DD6CBC4722D7449F006E395B /* PDTest11LaunchTask.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PDTest11LaunchTask.m; sourceTree = "<group>"; };
+		DD6CBC4922D744AA006E395B /* PDTest12LaunchTask.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PDTest12LaunchTask.h; sourceTree = "<group>"; };
+		DD6CBC4A22D744AA006E395B /* PDTest12LaunchTask.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PDTest12LaunchTask.m; sourceTree = "<group>"; };
+		DD6CBC4C22D744B3006E395B /* PDTest13LaunchTask.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PDTest13LaunchTask.h; sourceTree = "<group>"; };
+		DD6CBC4D22D744B3006E395B /* PDTest13LaunchTask.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PDTest13LaunchTask.m; sourceTree = "<group>"; };
+		DD6CBC4F22D744BD006E395B /* PDTest14LaunchTask.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PDTest14LaunchTask.h; sourceTree = "<group>"; };
+		DD6CBC5022D744BD006E395B /* PDTest14LaunchTask.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PDTest14LaunchTask.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -101,6 +152,8 @@
 		DD6CBBE422D73B77006E395B /* PDLaunchManager */ = {
 			isa = PBXGroup;
 			children = (
+				DD6CBC2722D743AE006E395B /* Test */,
+				DD6CBC1722D73B84006E395B /* Source */,
 				DD6CBBE522D73B77006E395B /* AppDelegate.h */,
 				DD6CBBE622D73B77006E395B /* AppDelegate.m */,
 				DD6CBBE822D73B77006E395B /* ViewController.h */,
@@ -130,6 +183,54 @@
 				DD6CBC0B22D73B7A006E395B /* Info.plist */,
 			);
 			path = PDLaunchManagerUITests;
+			sourceTree = "<group>";
+		};
+		DD6CBC1722D73B84006E395B /* Source */ = {
+			isa = PBXGroup;
+			children = (
+				DD6CBC1B22D73BB1006E395B /* PDLaunchTask.h */,
+				DD6CBC1C22D73BB1006E395B /* PDLaunchTask.m */,
+				DD6CBC1E22D73BBC006E395B /* PDLaunchManager.h */,
+				DD6CBC1F22D73BBC006E395B /* PDLaunchManager.m */,
+				DD6CBC2122D73E75006E395B /* PDPerformLab.h */,
+				DD6CBC2222D73E75006E395B /* PDPerformLab.m */,
+			);
+			path = Source;
+			sourceTree = "<group>";
+		};
+		DD6CBC2722D743AE006E395B /* Test */ = {
+			isa = PBXGroup;
+			children = (
+				DD6CBC2422D7436C006E395B /* PDTest1LaunchTask.h */,
+				DD6CBC2522D7436C006E395B /* PDTest1LaunchTask.m */,
+				DD6CBC2822D743C6006E395B /* PDTest2LaunchTask.h */,
+				DD6CBC2922D743C6006E395B /* PDTest2LaunchTask.m */,
+				DD6CBC2E22D743F4006E395B /* PDTest3LaunchTask.h */,
+				DD6CBC2F22D743F4006E395B /* PDTest3LaunchTask.m */,
+				DD6CBC3122D7440F006E395B /* PDTest4LaunchTask.h */,
+				DD6CBC3222D7440F006E395B /* PDTest4LaunchTask.m */,
+				DD6CBC3422D74452006E395B /* PDTest5LaunchTask.h */,
+				DD6CBC3522D74452006E395B /* PDTest5LaunchTask.m */,
+				DD6CBC3722D74470006E395B /* PDTest6LaunchTask.h */,
+				DD6CBC3822D74470006E395B /* PDTest6LaunchTask.m */,
+				DD6CBC3A22D74478006E395B /* PDTest7LaunchTask.h */,
+				DD6CBC3B22D74478006E395B /* PDTest7LaunchTask.m */,
+				DD6CBC3D22D74482006E395B /* PDTest8LaunchTask.h */,
+				DD6CBC3E22D74482006E395B /* PDTest8LaunchTask.m */,
+				DD6CBC4022D7448B006E395B /* PDTest9LaunchTask.h */,
+				DD6CBC4122D7448B006E395B /* PDTest9LaunchTask.m */,
+				DD6CBC4322D74494006E395B /* PDTest10LaunchTask.h */,
+				DD6CBC4422D74494006E395B /* PDTest10LaunchTask.m */,
+				DD6CBC4622D7449F006E395B /* PDTest11LaunchTask.h */,
+				DD6CBC4722D7449F006E395B /* PDTest11LaunchTask.m */,
+				DD6CBC4922D744AA006E395B /* PDTest12LaunchTask.h */,
+				DD6CBC4A22D744AA006E395B /* PDTest12LaunchTask.m */,
+				DD6CBC4C22D744B3006E395B /* PDTest13LaunchTask.h */,
+				DD6CBC4D22D744B3006E395B /* PDTest13LaunchTask.m */,
+				DD6CBC4F22D744BD006E395B /* PDTest14LaunchTask.h */,
+				DD6CBC5022D744BD006E395B /* PDTest14LaunchTask.m */,
+			);
+			path = Test;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -263,8 +364,25 @@
 			buildActionMask = 2147483647;
 			files = (
 				DD6CBBEA22D73B77006E395B /* ViewController.m in Sources */,
+				DD6CBC4822D7449F006E395B /* PDTest11LaunchTask.m in Sources */,
+				DD6CBC4B22D744AA006E395B /* PDTest12LaunchTask.m in Sources */,
 				DD6CBBF522D73B79006E395B /* main.m in Sources */,
+				DD6CBC4522D74494006E395B /* PDTest10LaunchTask.m in Sources */,
+				DD6CBC3322D7440F006E395B /* PDTest4LaunchTask.m in Sources */,
+				DD6CBC3C22D74478006E395B /* PDTest7LaunchTask.m in Sources */,
+				DD6CBC4E22D744B3006E395B /* PDTest13LaunchTask.m in Sources */,
+				DD6CBC2A22D743C6006E395B /* PDTest2LaunchTask.m in Sources */,
 				DD6CBBE722D73B77006E395B /* AppDelegate.m in Sources */,
+				DD6CBC3022D743F4006E395B /* PDTest3LaunchTask.m in Sources */,
+				DD6CBC4222D7448B006E395B /* PDTest9LaunchTask.m in Sources */,
+				DD6CBC2022D73BBC006E395B /* PDLaunchManager.m in Sources */,
+				DD6CBC3622D74452006E395B /* PDTest5LaunchTask.m in Sources */,
+				DD6CBC1D22D73BB1006E395B /* PDLaunchTask.m in Sources */,
+				DD6CBC2622D7436C006E395B /* PDTest1LaunchTask.m in Sources */,
+				DD6CBC3922D74470006E395B /* PDTest6LaunchTask.m in Sources */,
+				DD6CBC3F22D74482006E395B /* PDTest8LaunchTask.m in Sources */,
+				DD6CBC5122D744BD006E395B /* PDTest14LaunchTask.m in Sources */,
+				DD6CBC2322D73E75006E395B /* PDPerformLab.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

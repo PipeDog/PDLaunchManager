@@ -2,11 +2,12 @@
 //  AppDelegate.m
 //  PDLaunchManager
 //
-//  Created by 雷亮 on 2019/7/11.
+//  Created by liang on 2019/7/11.
 //  Copyright © 2019 liang. All rights reserved.
 //
 
 #import "AppDelegate.h"
+#import "PDLaunchManager.h"
 
 @interface AppDelegate ()
 
@@ -17,6 +18,7 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
+    [[PDLaunchManager defaultManager] launch];
     return YES;
 }
 

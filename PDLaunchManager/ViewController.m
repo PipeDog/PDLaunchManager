@@ -2,7 +2,7 @@
 //  ViewController.m
 //  PDLaunchManager
 //
-//  Created by 雷亮 on 2019/7/11.
+//  Created by liang on 2019/7/11.
 //  Copyright © 2019 liang. All rights reserved.
 //
 
@@ -13,6 +13,13 @@
 @end
 
 @implementation ViewController
+
+- (void)viewDidAppear:(BOOL)animated {
+    [super viewDidAppear:animated];
+    NSLog(@"============================>");
+    NSLog(@"Home page display first frame!");
+    NSLog(@"============================>");
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
