@@ -15,7 +15,7 @@
     return PDLaunchTaskPriorityUnknown;
 }
 
-- (NSUInteger)subPriority {
+- (PDLaunchTaskSubPriority)subPriority {
     return 0;
 }
 

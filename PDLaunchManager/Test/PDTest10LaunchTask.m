@@ -14,7 +14,7 @@
     return PDLaunchTaskPriorityAsyncInSubThread;
 }
 
-- (NSUInteger)subPriority {
+- (PDLaunchTaskSubPriority)subPriority {
     return 0;
 }
 

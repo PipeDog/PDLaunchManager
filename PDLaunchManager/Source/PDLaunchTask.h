@@ -28,12 +28,14 @@ typedef NS_ENUM(NSUInteger, PDLaunchTaskPriority) {
     PDLaunchTaskPriorityAsyncInSubThreadAfterLaunch = 4,
 };
 
+typedef NSUInteger PDLaunchTaskSubPriority;
+
 @interface PDLaunchTask : NSObject
 
 - (PDLaunchTaskPriority)priority;
 
 // The higher the value, the higher the priority, default is 0.
-- (NSUInteger)subPriority;
+- (PDLaunchTaskSubPriority)subPriority;
 
 - (void)run;
 

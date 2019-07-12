@@ -14,7 +14,7 @@
     return PDLaunchTaskPriorityHighest;
 }
 
-- (NSUInteger)subPriority {
+- (PDLaunchTaskSubPriority)subPriority {
     return 10;
 }
 
