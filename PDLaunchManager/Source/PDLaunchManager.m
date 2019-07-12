@@ -163,6 +163,6 @@ static PDLaunchManager *__launchManager;
 @end
 
 __attribute__((constructor))
-static inline void launch(void) {
+static void launch(void) {
     [[PDLaunchManager defaultManager] listen];
 }
