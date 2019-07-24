@@ -16,16 +16,16 @@
 #import <Aspects.h>
 #import "PDLaunchTaskInternal.h"
 
-@interface NSArray (_PDSafe)
-@end
+#ifndef force_inline
+#define force_inline __inline__ __attribute__((always_inline))
 
-@implementation NSArray (_PDSafe)
-
-- (id)_objectOrNilAtIndex:(NSUInteger)index {
-    return index < self.count ? self[index] : nil;
+static force_inline id NilOrObjectAtIndex(NSArray *args, NSInteger index) {
+    id arg = index < args.count ? args[index] : nil;
+    if (arg == [NSNull null]) {
+        arg = nil;
+    }
+    return arg;
 }
-
-@end
 
 @interface PDLaunchManager ()
 
@@ -202,14 +202,14 @@ static PDLaunchManager *__launchManager;
 
 - (void)hook {
     Class class = NSClassFromString(self.portName);
-    
+
     /* App States */
     [class aspect_hookSelector:@selector(application:willFinishLaunchingWithOptions:) withOptions:AspectPositionAfter usingBlock:^(id<AspectInfo> aspectInfo) {
+        
         [self enumTask:^(PDLaunchTask *task) {
-            NSLog(@"willFinishLaunchingWithOptions => %@", task);
             if (task->_hasImpl.willFinishLaunchingWithOptions) {
-                UIApplication *application = [aspectInfo.arguments _objectOrNilAtIndex:0];
-                NSDictionary *options = [aspectInfo.arguments _objectOrNilAtIndex:1];
+                UIApplication *application = NilOrObjectAtIndex(aspectInfo.arguments, 0);
+                NSDictionary *options = NilOrObjectAtIndex(aspectInfo.arguments, 1);
                 [task application:application willFinishLaunchingWithOptions:options];
             }
         }];
@@ -218,8 +218,8 @@ static PDLaunchManager *__launchManager;
     [class aspect_hookSelector:@selector(application:didFinishLaunchingWithOptions:) withOptions:AspectPositionAfter usingBlock:^(id<AspectInfo> aspectInfo) {
         [self enumTask:^(PDLaunchTask *task) {
             if (task->_hasImpl.didFinishLaunchingWithOptions) {
-                UIApplication *application = [aspectInfo.arguments _objectOrNilAtIndex:0];
-                NSDictionary *options = [aspectInfo.arguments _objectOrNilAtIndex:1];
+                UIApplication *application = NilOrObjectAtIndex(aspectInfo.arguments, 0);
+                NSDictionary *options = NilOrObjectAtIndex(aspectInfo.arguments, 1);
                 [task application:application didFinishLaunchingWithOptions:options];
             }
         }];
@@ -228,7 +228,7 @@ static PDLaunchManager *__launchManager;
     [class aspect_hookSelector:@selector(applicationDidBecomeActive:) withOptions:AspectPositionAfter usingBlock:^(id<AspectInfo> aspectInfo) {
         [self enumTask:^(PDLaunchTask *task) {
             if (task->_hasImpl.applicationDidBecomeActive) {
-                UIApplication *application = [aspectInfo.arguments _objectOrNilAtIndex:0];
+                UIApplication *application = NilOrObjectAtIndex(aspectInfo.arguments, 0);
                 [task applicationDidBecomeActive:application];
             }
         }];
@@ -237,7 +237,7 @@ static PDLaunchManager *__launchManager;
     [class aspect_hookSelector:@selector(applicationDidEnterBackground:) withOptions:AspectPositionAfter usingBlock:^(id<AspectInfo> aspectInfo) {
         [self enumTask:^(PDLaunchTask *task) {
             if (task->_hasImpl.applicationDidEnterBackground) {
-                UIApplication *application = [aspectInfo.arguments _objectOrNilAtIndex:0];
+                UIApplication *application = NilOrObjectAtIndex(aspectInfo.arguments, 0);
                 [task applicationDidEnterBackground:application];
             }
         }];
@@ -246,7 +246,7 @@ static PDLaunchManager *__launchManager;
     [class aspect_hookSelector:@selector(applicationWillResignActive:) withOptions:AspectPositionAfter usingBlock:^(id<AspectInfo> aspectInfo) {
         [self enumTask:^(PDLaunchTask *task) {
             if (task->_hasImpl.applicationWillResignActive) {
-                UIApplication *application = [aspectInfo.arguments _objectOrNilAtIndex:0];
+                UIApplication *application = NilOrObjectAtIndex(aspectInfo.arguments, 0);
                 [task applicationWillResignActive:application];
             }
         }];
@@ -255,7 +255,7 @@ static PDLaunchManager *__launchManager;
     [class aspect_hookSelector:@selector(applicationWillEnterForeground:) withOptions:AspectPositionAfter usingBlock:^(id<AspectInfo> aspectInfo) {
         [self enumTask:^(PDLaunchTask *task) {
             if (task->_hasImpl.applicationWillEnterForeground) {
-                UIApplication *application = [aspectInfo.arguments _objectOrNilAtIndex:0];
+                UIApplication *application = NilOrObjectAtIndex(aspectInfo.arguments, 0);
                 [task applicationWillEnterForeground:application];
             }
         }];
@@ -264,7 +264,7 @@ static PDLaunchManager *__launchManager;
     [class aspect_hookSelector:@selector(applicationWillTerminate:) withOptions:AspectPositionAfter usingBlock:^(id<AspectInfo> aspectInfo) {
         [self enumTask:^(PDLaunchTask *task) {
             if (task->_hasImpl.applicationWillTerminate) {
-                UIApplication *application = [aspectInfo.arguments _objectOrNilAtIndex:0];
+                UIApplication *application = NilOrObjectAtIndex(aspectInfo.arguments, 0);
                 [task applicationWillTerminate:application];
             }
         }];
@@ -274,8 +274,8 @@ static PDLaunchManager *__launchManager;
     [class aspect_hookSelector:@selector(application:didRegisterForRemoteNotificationsWithDeviceToken:) withOptions:AspectPositionAfter usingBlock:^(id<AspectInfo> aspectInfo) {
         [self enumTask:^(PDLaunchTask *task) {
             if (task->_hasImpl.didRegisterForRemoteNotificationsWithDeviceToken) {
-                UIApplication *application = [aspectInfo.arguments _objectOrNilAtIndex:0];
-                NSData *deviceToken = [aspectInfo.arguments _objectOrNilAtIndex:1];
+                UIApplication *application = NilOrObjectAtIndex(aspectInfo.arguments, 0);
+                NSData *deviceToken = NilOrObjectAtIndex(aspectInfo.arguments, 1);
                 [task application:application didRegisterForRemoteNotificationsWithDeviceToken:deviceToken];
             }
         }];
@@ -284,8 +284,8 @@ static PDLaunchManager *__launchManager;
     [class aspect_hookSelector:@selector(application:didFailToRegisterForRemoteNotificationsWithError:) withOptions:AspectPositionAfter usingBlock:^(id<AspectInfo> aspectInfo) {
         [self enumTask:^(PDLaunchTask *task) {
             if (task->_hasImpl.didFailToRegisterForRemoteNotificationsWithError) {
-                UIApplication *application = [aspectInfo.arguments _objectOrNilAtIndex:0];
-                NSError *error = [aspectInfo.arguments _objectOrNilAtIndex:1];
+                UIApplication *application = NilOrObjectAtIndex(aspectInfo.arguments, 0);
+                NSError *error = NilOrObjectAtIndex(aspectInfo.arguments, 1);
                 [task application:application didFailToRegisterForRemoteNotificationsWithError:error];
             }
         }];
@@ -294,8 +294,8 @@ static PDLaunchManager *__launchManager;
     [class aspect_hookSelector:@selector(application:didReceiveRemoteNotification:) withOptions:AspectPositionAfter usingBlock:^(id<AspectInfo> aspectInfo) {
         [self enumTask:^(PDLaunchTask *task) {
             if (task->_hasImpl.didReceiveRemoteNotification) {
-                UIApplication *application = [aspectInfo.arguments _objectOrNilAtIndex:0];
-                NSDictionary *userInfo = [aspectInfo.arguments _objectOrNilAtIndex:1];
+                UIApplication *application = NilOrObjectAtIndex(aspectInfo.arguments, 0);
+                NSDictionary *userInfo = NilOrObjectAtIndex(aspectInfo.arguments, 1);
                 [task application:application didReceiveRemoteNotification:userInfo];
             }
         }];
@@ -304,9 +304,9 @@ static PDLaunchManager *__launchManager;
     [class aspect_hookSelector:@selector(application:didReceiveRemoteNotification:fetchCompletionHandler:) withOptions:AspectPositionAfter usingBlock:^(id<AspectInfo> aspectInfo) {
         [self enumTask:^(PDLaunchTask *task) {
             if (task->_hasImpl.didReceiveRemoteNotificationFetchCompletionHandler) {
-                UIApplication *application = [aspectInfo.arguments _objectOrNilAtIndex:0];
-                NSDictionary *userInfo = [aspectInfo.arguments _objectOrNilAtIndex:1];
-                void (^completionHandler)(UIBackgroundFetchResult) = [aspectInfo.arguments _objectOrNilAtIndex:2];
+                UIApplication *application = NilOrObjectAtIndex(aspectInfo.arguments, 0);
+                NSDictionary *userInfo = NilOrObjectAtIndex(aspectInfo.arguments, 1);
+                void (^completionHandler)(UIBackgroundFetchResult) = NilOrObjectAtIndex(aspectInfo.arguments, 2);
                 [task application:application didReceiveRemoteNotification:userInfo fetchCompletionHandler:completionHandler];
             }
         }];
@@ -320,3 +320,5 @@ static void launch(void) {
     [[PDLaunchManager defaultManager] listen];
     [[PDLaunchManager defaultManager] hook];
 }
+
+#endif

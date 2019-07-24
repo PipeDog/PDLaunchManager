@@ -9,14 +9,302 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "PDLaunchManager/Source/PDLaunchManager.m"
-            timestampString = "585660873.7246619"
+            filePath = "PDLaunchManager/Test/PDTest1LaunchTask.m"
+            timestampString = "585662425.262045"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "110"
-            endingLineNumber = "110"
-            landmarkName = "-collectTasks"
+            startingLineNumber = "31"
+            endingLineNumber = "31"
+            landmarkName = "-application:didFinishLaunchingWithOptions:"
             landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "PDLaunchManager/Source/PDLaunchManager.m"
+            timestampString = "585662425.262107"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "25"
+            endingLineNumber = "25"
+            landmarkName = "NilOrObjectAtIndex"
+            landmarkType = "9">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "__36-[PDLaunchManager(_LaunchHook) hook]_block_invoke_2"
+                  moduleName = "PDLaunchManager"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/leiliang/Desktop/PDLaunchManager/PDLaunchManager/Source/PDLaunchManager.m"
+                  timestampString = "585662425.285141"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "25"
+                  endingLineNumber = "25"
+                  offsetFromSymbolStart = "418">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "__36-[PDLaunchManager(_LaunchHook) hook]_block_invoke_2"
+                  moduleName = "PDLaunchManager"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/leiliang/Desktop/PDLaunchManager/PDLaunchManager/Source/PDLaunchManager.m"
+                  timestampString = "585662425.287573"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "25"
+                  endingLineNumber = "25"
+                  offsetFromSymbolStart = "846">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "__36-[PDLaunchManager(_LaunchHook) hook]_block_invoke_2.166"
+                  moduleName = "PDLaunchManager"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/leiliang/Desktop/PDLaunchManager/PDLaunchManager/Source/PDLaunchManager.m"
+                  timestampString = "585662425.290205"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "25"
+                  endingLineNumber = "25"
+                  offsetFromSymbolStart = "422">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "__36-[PDLaunchManager(_LaunchHook) hook]_block_invoke_2.166"
+                  moduleName = "PDLaunchManager"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/leiliang/Desktop/PDLaunchManager/PDLaunchManager/Source/PDLaunchManager.m"
+                  timestampString = "585662425.295278"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "25"
+                  endingLineNumber = "25"
+                  offsetFromSymbolStart = "850">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "__36-[PDLaunchManager(_LaunchHook) hook]_block_invoke_2.176"
+                  moduleName = "PDLaunchManager"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/leiliang/Desktop/PDLaunchManager/PDLaunchManager/Source/PDLaunchManager.m"
+                  timestampString = "585662425.305282"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "25"
+                  endingLineNumber = "25"
+                  offsetFromSymbolStart = "386">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "__36-[PDLaunchManager(_LaunchHook) hook]_block_invoke_2.186"
+                  moduleName = "PDLaunchManager"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/leiliang/Desktop/PDLaunchManager/PDLaunchManager/Source/PDLaunchManager.m"
+                  timestampString = "585662425.307156"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "25"
+                  endingLineNumber = "25"
+                  offsetFromSymbolStart = "386">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "__36-[PDLaunchManager(_LaunchHook) hook]_block_invoke_2.196"
+                  moduleName = "PDLaunchManager"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/leiliang/Desktop/PDLaunchManager/PDLaunchManager/Source/PDLaunchManager.m"
+                  timestampString = "585662425.308977"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "25"
+                  endingLineNumber = "25"
+                  offsetFromSymbolStart = "386">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "__36-[PDLaunchManager(_LaunchHook) hook]_block_invoke_2.206"
+                  moduleName = "PDLaunchManager"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/leiliang/Desktop/PDLaunchManager/PDLaunchManager/Source/PDLaunchManager.m"
+                  timestampString = "585662425.310859"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "25"
+                  endingLineNumber = "25"
+                  offsetFromSymbolStart = "386">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "__36-[PDLaunchManager(_LaunchHook) hook]_block_invoke_2.216"
+                  moduleName = "PDLaunchManager"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/leiliang/Desktop/PDLaunchManager/PDLaunchManager/Source/PDLaunchManager.m"
+                  timestampString = "585662425.312953"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "25"
+                  endingLineNumber = "25"
+                  offsetFromSymbolStart = "386">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "__36-[PDLaunchManager(_LaunchHook) hook]_block_invoke_2.226"
+                  moduleName = "PDLaunchManager"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/leiliang/Desktop/PDLaunchManager/PDLaunchManager/Source/PDLaunchManager.m"
+                  timestampString = "585662425.316342"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "25"
+                  endingLineNumber = "25"
+                  offsetFromSymbolStart = "422">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "__36-[PDLaunchManager(_LaunchHook) hook]_block_invoke_2.226"
+                  moduleName = "PDLaunchManager"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/leiliang/Desktop/PDLaunchManager/PDLaunchManager/Source/PDLaunchManager.m"
+                  timestampString = "585662425.320237"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "25"
+                  endingLineNumber = "25"
+                  offsetFromSymbolStart = "850">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "__36-[PDLaunchManager(_LaunchHook) hook]_block_invoke_2.236"
+                  moduleName = "PDLaunchManager"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/leiliang/Desktop/PDLaunchManager/PDLaunchManager/Source/PDLaunchManager.m"
+                  timestampString = "585662425.323074"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "25"
+                  endingLineNumber = "25"
+                  offsetFromSymbolStart = "422">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "__36-[PDLaunchManager(_LaunchHook) hook]_block_invoke_2.236"
+                  moduleName = "PDLaunchManager"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/leiliang/Desktop/PDLaunchManager/PDLaunchManager/Source/PDLaunchManager.m"
+                  timestampString = "585662425.3256249"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "25"
+                  endingLineNumber = "25"
+                  offsetFromSymbolStart = "850">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "__36-[PDLaunchManager(_LaunchHook) hook]_block_invoke_2.246"
+                  moduleName = "PDLaunchManager"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/leiliang/Desktop/PDLaunchManager/PDLaunchManager/Source/PDLaunchManager.m"
+                  timestampString = "585662425.3278199"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "25"
+                  endingLineNumber = "25"
+                  offsetFromSymbolStart = "422">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "__36-[PDLaunchManager(_LaunchHook) hook]_block_invoke_2.246"
+                  moduleName = "PDLaunchManager"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/leiliang/Desktop/PDLaunchManager/PDLaunchManager/Source/PDLaunchManager.m"
+                  timestampString = "585662425.329584"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "25"
+                  endingLineNumber = "25"
+                  offsetFromSymbolStart = "850">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "__36-[PDLaunchManager(_LaunchHook) hook]_block_invoke_2.256"
+                  moduleName = "PDLaunchManager"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/leiliang/Desktop/PDLaunchManager/PDLaunchManager/Source/PDLaunchManager.m"
+                  timestampString = "585662425.331737"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "25"
+                  endingLineNumber = "25"
+                  offsetFromSymbolStart = "443">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "__36-[PDLaunchManager(_LaunchHook) hook]_block_invoke_2.256"
+                  moduleName = "PDLaunchManager"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/leiliang/Desktop/PDLaunchManager/PDLaunchManager/Source/PDLaunchManager.m"
+                  timestampString = "585662425.33382"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "25"
+                  endingLineNumber = "25"
+                  offsetFromSymbolStart = "877">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "__36-[PDLaunchManager(_LaunchHook) hook]_block_invoke_2.256"
+                  moduleName = "PDLaunchManager"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/leiliang/Desktop/PDLaunchManager/PDLaunchManager/Source/PDLaunchManager.m"
+                  timestampString = "585662425.335729"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "25"
+                  endingLineNumber = "25"
+                  offsetFromSymbolStart = "1311">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>
