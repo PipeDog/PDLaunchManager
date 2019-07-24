@@ -202,6 +202,7 @@ static PDLaunchManager *__launchManager;
 
 - (void)hook {
     Class class = NSClassFromString(self.portName);
+    if (!class) { return; }
 
     /* App States */
     [class aspect_hookSelector:@selector(application:willFinishLaunchingWithOptions:) withOptions:AspectPositionAfter usingBlock:^(id<AspectInfo> aspectInfo) {
