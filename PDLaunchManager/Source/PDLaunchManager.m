@@ -12,7 +12,6 @@
 #import <dlfcn.h>
 #import <mach-o/getsect.h>
 #import <QuartzCore/QuartzCore.h>
-#import "PDPerformLab.h"
 #import <UIKit/UIKit.h>
 
 @interface PDLaunchManager ()
@@ -139,17 +138,10 @@ static PDLaunchManager *__launchManager;
     });
 }
 
-- (void)executeTasks:(NSArray<PDLaunchTask *> *)tasks priority:(PDLaunchTaskPriority)priority {
-    NSString *key = [NSString stringWithFormat:@"%zd", priority];
-    
-    PDPerformLab *lab = [PDPerformLab globalLab];
-    [lab beginForKey:key];
-    
+- (void)executeTasks:(NSArray<PDLaunchTask *> *)tasks priority:(PDLaunchTaskPriority)priority {    
     for (PDLaunchTask *task in [tasks copy]) {
         [task run];
     }
-
-    [lab endForKey:key];
 }
 
 #pragma mark - Tick Methods

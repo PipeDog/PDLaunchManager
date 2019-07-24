@@ -17,7 +17,6 @@
 		DD6CBC0A22D73B7A006E395B /* PDLaunchManagerUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = DD6CBC0922D73B7A006E395B /* PDLaunchManagerUITests.m */; };
 		DD6CBC1D22D73BB1006E395B /* PDLaunchTask.m in Sources */ = {isa = PBXBuildFile; fileRef = DD6CBC1C22D73BB1006E395B /* PDLaunchTask.m */; };
 		DD6CBC2022D73BBC006E395B /* PDLaunchManager.m in Sources */ = {isa = PBXBuildFile; fileRef = DD6CBC1F22D73BBC006E395B /* PDLaunchManager.m */; };
-		DD6CBC2322D73E75006E395B /* PDPerformLab.m in Sources */ = {isa = PBXBuildFile; fileRef = DD6CBC2222D73E75006E395B /* PDPerformLab.m */; };
 		DD6CBC2622D7436C006E395B /* PDTest1LaunchTask.m in Sources */ = {isa = PBXBuildFile; fileRef = DD6CBC2522D7436C006E395B /* PDTest1LaunchTask.m */; };
 		DD6CBC2A22D743C6006E395B /* PDTest2LaunchTask.m in Sources */ = {isa = PBXBuildFile; fileRef = DD6CBC2922D743C6006E395B /* PDTest2LaunchTask.m */; };
 		DD6CBC3022D743F4006E395B /* PDTest3LaunchTask.m in Sources */ = {isa = PBXBuildFile; fileRef = DD6CBC2F22D743F4006E395B /* PDTest3LaunchTask.m */; };
@@ -72,8 +71,6 @@
 		DD6CBC1C22D73BB1006E395B /* PDLaunchTask.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PDLaunchTask.m; sourceTree = "<group>"; };
 		DD6CBC1E22D73BBC006E395B /* PDLaunchManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PDLaunchManager.h; sourceTree = "<group>"; };
 		DD6CBC1F22D73BBC006E395B /* PDLaunchManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PDLaunchManager.m; sourceTree = "<group>"; };
-		DD6CBC2122D73E75006E395B /* PDPerformLab.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PDPerformLab.h; sourceTree = "<group>"; };
-		DD6CBC2222D73E75006E395B /* PDPerformLab.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PDPerformLab.m; sourceTree = "<group>"; };
 		DD6CBC2422D7436C006E395B /* PDTest1LaunchTask.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PDTest1LaunchTask.h; sourceTree = "<group>"; };
 		DD6CBC2522D7436C006E395B /* PDTest1LaunchTask.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PDTest1LaunchTask.m; sourceTree = "<group>"; };
 		DD6CBC2822D743C6006E395B /* PDTest2LaunchTask.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PDTest2LaunchTask.h; sourceTree = "<group>"; };
@@ -192,8 +189,6 @@
 				DD6CBC1C22D73BB1006E395B /* PDLaunchTask.m */,
 				DD6CBC1E22D73BBC006E395B /* PDLaunchManager.h */,
 				DD6CBC1F22D73BBC006E395B /* PDLaunchManager.m */,
-				DD6CBC2122D73E75006E395B /* PDPerformLab.h */,
-				DD6CBC2222D73E75006E395B /* PDPerformLab.m */,
 			);
 			path = Source;
 			sourceTree = "<group>";
@@ -382,7 +377,6 @@
 				DD6CBC3922D74470006E395B /* PDTest6LaunchTask.m in Sources */,
 				DD6CBC3F22D74482006E395B /* PDTest8LaunchTask.m in Sources */,
 				DD6CBC5122D744BD006E395B /* PDTest14LaunchTask.m in Sources */,
-				DD6CBC2322D73E75006E395B /* PDPerformLab.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
