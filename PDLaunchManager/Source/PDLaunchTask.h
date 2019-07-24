@@ -6,7 +6,7 @@
 //  Copyright © 2019 liang. All rights reserved.
 //
 
-#import <Foundation/Foundation.h>
+#import <UIKit/UIKit.h>
 #import "PDLaunchManager.h"
 
 NS_ASSUME_NONNULL_BEGIN
@@ -30,7 +30,10 @@ typedef NS_ENUM(NSUInteger, PDLaunchTaskPriority) {
 
 typedef NSUInteger PDLaunchTaskSubPriority;
 
-@interface PDLaunchTask : NSObject
+@protocol PDLaunchTask <UIApplicationDelegate>
+@end
+
+@interface PDLaunchTask : NSObject <PDLaunchTask>
 
 - (PDLaunchTaskPriority)priority;
 

@@ -7,6 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "PDLaunchManager.h"
+
+PD_EXPORT_LAUNCH_PORT_EXT(AppDelegate)
 
 @interface AppDelegate : UIResponder <UIApplicationDelegate>
 

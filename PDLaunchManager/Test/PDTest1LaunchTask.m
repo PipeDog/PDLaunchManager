@@ -27,4 +27,9 @@
     NSLog(@"%@, pri => %zd, subPri => %zd", [self class], [self priority], [self subPriority]);
 }
 
+- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
+    NSLog(@"application => %@, options => %@", application, launchOptions);
+    return YES;
+}
+
 @end
