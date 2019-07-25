@@ -312,6 +312,29 @@ static PDLaunchManager *__launchManager;
             }
         }];
     } error:nil];
+    
+    // Screen orientation
+    [class aspect_hookSelector:@selector(application:supportedInterfaceOrientationsForWindow:) withOptions:AspectPositionInstead usingBlock:^(id<AspectInfo> aspectInfo) {
+        __block UIInterfaceOrientationMask mask = UIInterfaceOrientationMaskPortrait;
+        __block NSUInteger sentinel = 0;
+        
+        [self enumTask:^(PDLaunchTask *task) {
+            if (task->_hasImpl.supportedInterfaceOrientationsForWindow) {
+                UIApplication *application = NilOrObjectAtIndex(aspectInfo.arguments, 0);
+                UIWindow *window = NilOrObjectAtIndex(aspectInfo.arguments, 1);
+                
+                if (!sentinel) {
+                    mask = [task application:application supportedInterfaceOrientationsForWindow:window];
+                    sentinel += 1;
+                } else {
+                    [task application:application supportedInterfaceOrientationsForWindow:window];
+                }
+            }
+        }];
+        
+        NSInvocation *invocation = aspectInfo.originalInvocation;
+        [invocation setReturnValue:&mask];
+    } error:nil];
 }
 
 @end

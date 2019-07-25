@@ -28,6 +28,9 @@
         _hasImpl.didFailToRegisterForRemoteNotificationsWithError = [self respondsToSelector:@selector(application:didFailToRegisterForRemoteNotificationsWithError:)];
         _hasImpl.didReceiveRemoteNotification = [self respondsToSelector:@selector(application:didReceiveRemoteNotification:)];
         _hasImpl.didReceiveRemoteNotificationFetchCompletionHandler = [self respondsToSelector:@selector(application:didReceiveRemoteNotification:fetchCompletionHandler:)];
+        
+        /* Screen orientation */
+        _hasImpl.supportedInterfaceOrientationsForWindow = [self respondsToSelector:@selector(application:supportedInterfaceOrientationsForWindow:)];
     }
     return self;
 }

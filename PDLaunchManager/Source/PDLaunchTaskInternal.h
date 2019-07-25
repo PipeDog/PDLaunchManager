@@ -25,6 +25,9 @@
         unsigned didFailToRegisterForRemoteNotificationsWithError : 1;
         unsigned didReceiveRemoteNotification : 1;
         unsigned didReceiveRemoteNotificationFetchCompletionHandler : 1;
+        
+        /* Screen orientation */
+        unsigned supportedInterfaceOrientationsForWindow : 1;
     } _hasImpl;
 }
 
