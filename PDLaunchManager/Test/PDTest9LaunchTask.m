@@ -11,10 +11,10 @@
 @implementation PDTest9LaunchTask
 
 - (PDLaunchTaskPriority)priority {
-    return PDLaunchTaskPriorityAsyncInSubThread;
+    return PDLaunchTaskPriorityAsync;
 }
 
-- (void)run {
+- (void)launchWithOptions:(NSDictionary *)options {
     int i = 10000;
     
     while (i > 0) {

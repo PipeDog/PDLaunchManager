@@ -33,6 +33,7 @@
 		DD6CBC4B22D744AA006E395B /* PDTest12LaunchTask.m in Sources */ = {isa = PBXBuildFile; fileRef = DD6CBC4A22D744AA006E395B /* PDTest12LaunchTask.m */; };
 		DD6CBC4E22D744B3006E395B /* PDTest13LaunchTask.m in Sources */ = {isa = PBXBuildFile; fileRef = DD6CBC4D22D744B3006E395B /* PDTest13LaunchTask.m */; };
 		DD6CBC5122D744BD006E395B /* PDTest14LaunchTask.m in Sources */ = {isa = PBXBuildFile; fileRef = DD6CBC5022D744BD006E395B /* PDTest14LaunchTask.m */; };
+		DDD98EE922EECF8500944A7F /* PDTaskDispatcher.m in Sources */ = {isa = PBXBuildFile; fileRef = DDD98EE822EECF8500944A7F /* PDTaskDispatcher.m */; };
 		E18BDD797FE95BF8408E54DC /* libPods-PDLaunchManagerUITests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 271497DB7F86574F1CF12B11 /* libPods-PDLaunchManagerUITests.a */; };
 /* End PBXBuildFile section */
 
@@ -110,7 +111,8 @@
 		DD6CBC4D22D744B3006E395B /* PDTest13LaunchTask.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PDTest13LaunchTask.m; sourceTree = "<group>"; };
 		DD6CBC4F22D744BD006E395B /* PDTest14LaunchTask.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PDTest14LaunchTask.h; sourceTree = "<group>"; };
 		DD6CBC5022D744BD006E395B /* PDTest14LaunchTask.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PDTest14LaunchTask.m; sourceTree = "<group>"; };
-		DDD98DE422E84CD900944A7F /* PDLaunchTaskInternal.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PDLaunchTaskInternal.h; sourceTree = "<group>"; };
+		DDD98EE722EECF8500944A7F /* PDTaskDispatcher.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PDTaskDispatcher.h; sourceTree = "<group>"; };
+		DDD98EE822EECF8500944A7F /* PDTaskDispatcher.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PDTaskDispatcher.m; sourceTree = "<group>"; };
 		E134F6BD33FEFD73EB6A24E3 /* Pods-PDLaunchManagerUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PDLaunchManagerUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-PDLaunchManagerUITests/Pods-PDLaunchManagerUITests.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -226,11 +228,12 @@
 		DD6CBC1722D73B84006E395B /* Source */ = {
 			isa = PBXGroup;
 			children = (
-				DDD98DE422E84CD900944A7F /* PDLaunchTaskInternal.h */,
 				DD6CBC1B22D73BB1006E395B /* PDLaunchTask.h */,
 				DD6CBC1C22D73BB1006E395B /* PDLaunchTask.m */,
 				DD6CBC1E22D73BBC006E395B /* PDLaunchManager.h */,
 				DD6CBC1F22D73BBC006E395B /* PDLaunchManager.m */,
+				DDD98EE722EECF8500944A7F /* PDTaskDispatcher.h */,
+				DDD98EE822EECF8500944A7F /* PDTaskDispatcher.m */,
 			);
 			path = Source;
 			sourceTree = "<group>";
@@ -483,6 +486,7 @@
 				DD6CBC2A22D743C6006E395B /* PDTest2LaunchTask.m in Sources */,
 				DD6CBBE722D73B77006E395B /* AppDelegate.m in Sources */,
 				DD6CBC3022D743F4006E395B /* PDTest3LaunchTask.m in Sources */,
+				DDD98EE922EECF8500944A7F /* PDTaskDispatcher.m in Sources */,
 				DD6CBC4222D7448B006E395B /* PDTest9LaunchTask.m in Sources */,
 				DD6CBC2022D73BBC006E395B /* PDLaunchManager.m in Sources */,
 				DD6CBC3622D74452006E395B /* PDTest5LaunchTask.m in Sources */,

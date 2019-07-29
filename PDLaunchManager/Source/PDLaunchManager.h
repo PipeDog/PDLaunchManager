@@ -8,20 +8,9 @@
 
 #import <Foundation/Foundation.h>
 
+@class PDLaunchTask;
+
 NS_ASSUME_NONNULL_BEGIN
-
-/* Export launch port */
-typedef struct {
-    const char *portname;
-    const char *classname;
-} PDLaunchPortName;
-
-#define __PD_EXPORT_LAUNCH_PORT_EXT(portname, classname) \
-__attribute__((used, section("__DATA , pd_exp_port"))) \
-static const PDLaunchPortName __pd_exp_port_##portname##__ = {#portname, #classname};
-
-#define PD_EXPORT_LAUNCH_PORT_EXT(classname) __PD_EXPORT_LAUNCH_PORT_EXT(classname, classname)
-
 
 /* Export task */
 typedef struct {
@@ -37,6 +26,10 @@ static const PDLaunchTaskName __pd_exp_task_##taskname##__ = {#taskname, #classn
 
 
 @interface PDLaunchManager : NSObject
+
+@property (class, strong, readonly) PDLaunchManager *defaultManager;
+
+@property (nonatomic, copy, readonly) NSArray<PDLaunchTask *> *launchTasks;
 
 @end
 
