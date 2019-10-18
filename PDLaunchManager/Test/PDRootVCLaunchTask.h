@@ -1,8 +1,8 @@
 //
-//  PDTest12LaunchTask.h
+//  PDRootVCLaunchTask.h
 //  PDLaunchManager
 //
-//  Created by liang on 2019/7/11.
+//  Created by liang on 2019/10/18.
 //  Copyright © 2019 liang. All rights reserved.
 //
 
@@ -10,9 +10,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-PD_EXPORT_LAUNCH_TASK_EXT(PDTest12LaunchTask)
-
-@interface PDTest12LaunchTask : PDLaunchTask
+@interface PDRootVCLaunchTask : PDLaunchTask
 
 @end
 

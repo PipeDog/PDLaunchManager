@@ -10,15 +10,6 @@
 
 @implementation PDLaunchTask
 
-- (PDLaunchTaskPriority)priority {
-    NSAssert(NO, @"This method must be overrided!");
-    return PDLaunchTaskPriorityUnknown;
-}
-
-- (PDLaunchTaskSubPriority)subPriority {
-    return 0;
-}
-
 - (void)launchWithOptions:(NSDictionary *)options {
     NSAssert(NO, @"This method must be overrided!");
 }

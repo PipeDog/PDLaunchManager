@@ -7,27 +7,21 @@
 //
 
 #import "PDLaunchManager.h"
-#import <objc/runtime.h>
 #import "PDLaunchTask.h"
-#import <dlfcn.h>
-#import <mach-o/getsect.h>
-#import <QuartzCore/QuartzCore.h>
 
-@interface PDLaunchManager ()
+@interface PDLaunchManager () {
+    dispatch_semaphore_t _lock;
+}
 
-@property (nonatomic, strong) NSMutableDictionary<NSNumber *, NSMutableArray<PDLaunchTask *> *> *tasks;
-@property (nonatomic, copy) NSArray<PDLaunchTask *> *launchTasks;
-@property (nonatomic, strong) CADisplayLink *displayLink;
-@property (nonatomic, strong) dispatch_group_t startLaunchGroup;
+@property (nonatomic, strong) NSMutableArray<PDLaunchTask *> *launchTasks;
 @property (nonatomic, copy) NSDictionary *launchOptions;
 
 @end
 
 @implementation PDLaunchManager
 
-static PDLaunchManager *__launchManager;
-
 + (PDLaunchManager *)defaultManager {
+    static PDLaunchManager *__launchManager;
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
         __launchManager = [[self alloc] init];
@@ -38,107 +32,76 @@ static PDLaunchManager *__launchManager;
 - (instancetype)init {
     self = [super init];
     if (self) {
-        _startLaunchGroup = dispatch_group_create();
-        _tasks = [NSMutableDictionary dictionary];
-        
-        dispatch_group_enter(_startLaunchGroup);
-        
-        [self collectTasks];
-        
-        __weak typeof(self) weakSelf = self;
-        dispatch_group_notify(_startLaunchGroup, dispatch_get_main_queue(), ^{
-            [weakSelf launch];
-        });
+        _launchTasks = [NSMutableArray array];
+        _lock = dispatch_semaphore_create(1);
     }
     return self;
 }
 
-
-- (void)launch {
-    self.displayLink = [CADisplayLink displayLinkWithTarget:self selector:@selector(tick:)];
-    [self.displayLink addToRunLoop:[NSRunLoop currentRunLoop] forMode:NSRunLoopCommonModes];
+#pragma mark - Execute Methods
+- (void)launchWithOptions:(NSDictionary *)options {
+    self.launchOptions = options;
     
-    // Warning: Do not modify the following order.
-    [self executeBarrierGroupTasks];
-    [self executeAsyncTasks];
-    [self executeSyncTasks];
-}
-
-#pragma mark - Collect Tasks Methods
-- (void)collectTasks {
-    dispatch_group_enter(self.startLaunchGroup);
-    NSMutableArray<PDLaunchTask *> *tasks = [NSMutableArray array];
-    
-    [self loadTask:^(NSString *classname) {
-        Class cls = NSClassFromString(classname);
-        PDLaunchTask *task = [[cls alloc] init];
-        PDLaunchTaskPriority priority = [task priority];
-        
-        NSMutableArray<PDLaunchTask *> *sameLevelTasks = self.tasks[@(priority)];
-        if (!sameLevelTasks) {
-            sameLevelTasks = [NSMutableArray array];
-            self.tasks[@(priority)] = sameLevelTasks;
+    NSArray *(^collectLaunchTasks)(void) = ^{
+        if (@available(iOS 11.0, *)) {
+            NSURL *URL = [NSURL fileURLWithPath:self.plistPath];
+            return [NSArray arrayWithContentsOfURL:URL error:nil];
+        } else {
+            // Fallback on earlier versions
+            return [NSArray arrayWithContentsOfFile:self.plistPath];
         }
-        
-        [sameLevelTasks addObject:task];
-        [tasks addObject:task];
-    }];
+    };
     
-    // Sort tasks
-    [[self.tasks.allValues copy] enumerateObjectsUsingBlock:^(NSMutableArray<PDLaunchTask *> * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
-        [obj sortUsingComparator:^NSComparisonResult(PDLaunchTask * _Nonnull obj1, PDLaunchTask * _Nonnull obj2) {
-            return [obj1 subPriority] < [obj2 subPriority];
-        }];
-    }];
-    
-    self.launchTasks = [tasks copy];
-    dispatch_group_leave(self.startLaunchGroup);
-}
+    NSArray *launchTasks = collectLaunchTasks();
+    if (!launchTasks.count) {
+        return;
+    }
 
-- (void)loadTask:(void (^)(NSString *classname))registerHandler {
-    Dl_info info; dladdr(&__launchManager, &info);
-    
-#ifdef __LP64__
-    uint64_t addr = 0; const uint64_t mach_header = (uint64_t)info.dli_fbase;
-    const struct section_64 *section = getsectbynamefromheader_64((void *)mach_header, "__DATA", "pd_exp_task");
-#else
-    uint32_t addr = 0; const uint32_t mach_header = (uint32_t)info.dli_fbase;
-    const struct section *section = getsectbynamefromheader((void *)mach_header, "__DATA", "pd_exp_task");
-#endif
-    
-    if (section == NULL)  return;
-    
-    for (addr = section->offset; addr < section->offset + section->size; addr += sizeof(PDLaunchTaskName)) {
-        PDLaunchTaskName *task = (PDLaunchTaskName *)(mach_header + addr);
-        if (!task) continue;
+    for (NSDictionary *dict in launchTasks) {
+        NSString *type = dict[@"type"];
+        NSArray *tasks = dict[@"tasks"];
         
-        NSString *classname = [NSString stringWithUTF8String:task->classname];
-        !registerHandler ?: registerHandler(classname);
+        if ([type isEqualToString:@"sync"]) {
+            [self syncLaunchTasks:tasks];
+        } else if ([type isEqualToString:@"async"]) {
+            [self asyncLaunchTasks:tasks];
+        } else if ([type isEqualToString:@"barrier_group"]) {
+            [self barrierGroupLaunchTasks:tasks];
+        } else {
+            NSAssert(NO, @"Invalid `type`!");
+        }
     }
 }
 
-#pragma mark - Notification Methods
-- (void)listen {
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(applicationDidFinishLaunchingWithOptions:) name:UIApplicationDidFinishLaunchingNotification object:nil];
+- (NSArray<PDLaunchTask *> *)allTasks {
+    return [self.launchTasks copy];
 }
 
-- (void)applicationDidFinishLaunchingWithOptions:(NSNotification *)notification {
-    self.launchOptions = notification.userInfo;
-    dispatch_group_leave(_startLaunchGroup);
+#pragma mark - Private Methods
+- (void)syncLaunchTasks:(NSArray<NSString *> *)classnames {
+    for (NSString *classname in classnames) {
+        [self launchTask:classname];
+    }
+}
+
+- (void)asyncLaunchTasks:(NSArray<NSString *> *)classnames {
+    dispatch_queue_t queue = dispatch_queue_create("com.launchTaskQueue.async", DISPATCH_QUEUE_CONCURRENT);
     
-    [[NSNotificationCenter defaultCenter] removeObserver:self];
+    for (NSString *classname in classnames) {
+        dispatch_async(queue, ^{
+            [self launchTask:classname];
+        });
+    }
 }
 
-#pragma mark - Execute Methods
-- (void)executeBarrierGroupTasks {
-    NSMutableArray<PDLaunchTask *> *tasks = self.tasks[@(PDLaunchTaskPriorityBarrierGroup)];
-    dispatch_queue_t queue = dispatch_queue_create("com.launchqueue.barrier", DISPATCH_QUEUE_CONCURRENT);
+- (void)barrierGroupLaunchTasks:(NSArray<NSString *> *)classnames {
+    dispatch_queue_t queue = dispatch_queue_create("com.launchTaskQueue.barrierGroup", DISPATCH_QUEUE_CONCURRENT);
     dispatch_group_t group = dispatch_group_create();
     
-    for (PDLaunchTask *task in tasks) {
+    for (NSString *classname in classnames) {
         dispatch_group_enter(group);
         dispatch_group_async(group, queue, ^{
-            [task launchWithOptions:self.launchOptions];
+            [self launchTask:classname];
             dispatch_group_leave(group);
         });
     }
@@ -146,47 +109,15 @@ static PDLaunchManager *__launchManager;
     dispatch_group_wait(group, DISPATCH_TIME_FOREVER);
 }
 
-- (void)executeAsyncTasks {
-    NSMutableArray<PDLaunchTask *> *tasks = self.tasks[@(PDLaunchTaskPriorityAsync)];
-    dispatch_queue_t queue = dispatch_queue_create("com.launchqueue.async", DISPATCH_QUEUE_CONCURRENT);
+- (void)launchTask:(NSString *)classname {
+    Class cls = NSClassFromString(classname);
+    PDLaunchTask *task = [[cls alloc] init];
     
-    for (PDLaunchTask *task in tasks) {
-        dispatch_async(queue, ^{
-            [task launchWithOptions:self.launchOptions];
-        });
-    }
-}
-
-- (void)executeSyncTasks {
-    NSMutableArray<PDLaunchTask *> *tasks = self.tasks[@(PDLaunchTaskPrioritySync)];
+    dispatch_semaphore_wait(self->_lock, DISPATCH_TIME_FOREVER);
+    [self.launchTasks addObject:task];
+    dispatch_semaphore_signal(self->_lock);
     
-    for (PDLaunchTask *task in tasks) {
-        [task launchWithOptions:self.launchOptions];
-    }
-}
-
-- (void)executeAsyncAfterLaunchTasks {
-    NSMutableArray<PDLaunchTask *> *tasks = self.tasks[@(PDLaunchTaskPriorityAsyncAfterLaunch)];
-    dispatch_queue_t queue = dispatch_queue_create("com.launchqueue.async-afterlaunch", DISPATCH_QUEUE_CONCURRENT);
-    
-    for (PDLaunchTask *task in tasks) {
-        dispatch_async(queue, ^{
-            [task launchWithOptions:self.launchOptions];
-        });
-    }
-}
-
-#pragma mark - Tick Methods
-- (void)tick:(CADisplayLink *)displayLink {
-    [self executeAsyncAfterLaunchTasks];
-    
-    [self.displayLink invalidate];
-    self.displayLink = nil;
+    [task launchWithOptions:self.launchOptions];
 }
 
 @end
-
-__attribute__((constructor))
-static void launch(void) {
-    [[PDLaunchManager defaultManager] listen];
-}

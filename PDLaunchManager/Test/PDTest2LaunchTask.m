@@ -10,14 +10,6 @@
 
 @implementation PDTest2LaunchTask
 
-- (PDLaunchTaskPriority)priority {
-    return PDLaunchTaskPriorityBarrierGroup;
-}
-
-- (PDLaunchTaskSubPriority)subPriority {
-    return 10;
-}
-
 - (void)launchWithOptions:(NSDictionary *)options {
     int i = 100000;
     
@@ -25,7 +17,7 @@
         i --;
     }
     
-    NSLog(@"%@, pri => %zd, subPri => %zd", [self class], [self priority], [self subPriority]);
+    NSLog(@"%@", [self class]);
 }
 
 @end

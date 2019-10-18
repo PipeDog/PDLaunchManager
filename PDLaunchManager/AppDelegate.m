@@ -8,6 +8,7 @@
 
 #import "AppDelegate.h"
 #import "PDTaskDispatcher.h"
+#import "PDLaunchManager.h"
 
 @interface AppDelegate ()
 
@@ -17,6 +18,12 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
+    NSString *plistPath = [[NSBundle mainBundle] pathForResource:@"launchTasks" ofType:@"plist"];
+
+    PDLaunchManager *launchManager = [PDLaunchManager defaultManager];
+    launchManager.plistPath = plistPath;
+    [launchManager launchWithOptions:launchOptions];
+    
     return YES;
 }
 

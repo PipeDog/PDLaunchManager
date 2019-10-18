@@ -10,8 +10,6 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-PD_EXPORT_LAUNCH_TASK_EXT(PDTest3LaunchTask)
-
 @interface PDTest3LaunchTask : PDLaunchTask
 
 @end

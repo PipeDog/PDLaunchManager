@@ -7,38 +7,13 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "PDLaunchManager.h"
 
 NS_ASSUME_NONNULL_BEGIN
-
-typedef NS_ENUM(NSUInteger, PDLaunchTaskPriority) {
-    // Invalid task priority
-    PDLaunchTaskPriorityUnknown             = 0,
-    
-    // A task that must be initialized first (execute in subThread).
-    PDLaunchTaskPriorityBarrierGroup        = 1,
-    
-    // A main thread task that can be executed in parallel with tasks in other subthreads
-    PDLaunchTaskPrioritySync                = 2,
-    
-    // Tasks that can be performed by subthreads
-    PDLaunchTaskPriorityAsync               = 3,
-    
-    // Tasks performed by child threads can be displayed on the home page
-    PDLaunchTaskPriorityAsyncAfterLaunch    = 4,
-};
-
-typedef NSUInteger PDLaunchTaskSubPriority;
 
 @protocol PDLaunchTask <UIApplicationDelegate>
 @end
 
 @interface PDLaunchTask : NSObject <PDLaunchTask>
-
-- (PDLaunchTaskPriority)priority;
-
-// The higher the value, the higher the priority, default is 0.
-- (PDLaunchTaskSubPriority)subPriority;
 
 - (void)launchWithOptions:(NSDictionary *)options;
 

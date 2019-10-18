@@ -22,7 +22,7 @@
 }
 
 - (NSArray<PDLaunchTask *> *)tasks {
-    return [PDLaunchManager defaultManager].launchTasks;
+    return [[PDLaunchManager defaultManager] allTasks];
 }
 
 #pragma mark -  App States Methods

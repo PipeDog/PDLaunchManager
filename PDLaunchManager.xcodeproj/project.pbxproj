@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		58049AC5D4D3E533E266FB78 /* libPods-PDLaunchManagerTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C8192DA3AC9C8A27B22336D7 /* libPods-PDLaunchManagerTests.a */; };
 		5C891A0242290D0A834530E3 /* libPods-PDLaunchManager.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 72AA285FE09A8BF346D9240D /* libPods-PDLaunchManager.a */; };
+		DD1F87162359A016001B8BCA /* launchTasks.plist in Resources */ = {isa = PBXBuildFile; fileRef = DD1F87152359A015001B8BCA /* launchTasks.plist */; };
+		DD1F87192359B85A001B8BCA /* PDRootVCLaunchTask.m in Sources */ = {isa = PBXBuildFile; fileRef = DD1F87182359B85A001B8BCA /* PDRootVCLaunchTask.m */; };
 		DD6CBBE722D73B77006E395B /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = DD6CBBE622D73B77006E395B /* AppDelegate.m */; };
 		DD6CBBEA22D73B77006E395B /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DD6CBBE922D73B77006E395B /* ViewController.m */; };
 		DD6CBBED22D73B77006E395B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DD6CBBEB22D73B77006E395B /* Main.storyboard */; };
@@ -28,11 +30,6 @@
 		DD6CBC3C22D74478006E395B /* PDTest7LaunchTask.m in Sources */ = {isa = PBXBuildFile; fileRef = DD6CBC3B22D74478006E395B /* PDTest7LaunchTask.m */; };
 		DD6CBC3F22D74482006E395B /* PDTest8LaunchTask.m in Sources */ = {isa = PBXBuildFile; fileRef = DD6CBC3E22D74482006E395B /* PDTest8LaunchTask.m */; };
 		DD6CBC4222D7448B006E395B /* PDTest9LaunchTask.m in Sources */ = {isa = PBXBuildFile; fileRef = DD6CBC4122D7448B006E395B /* PDTest9LaunchTask.m */; };
-		DD6CBC4522D74494006E395B /* PDTest10LaunchTask.m in Sources */ = {isa = PBXBuildFile; fileRef = DD6CBC4422D74494006E395B /* PDTest10LaunchTask.m */; };
-		DD6CBC4822D7449F006E395B /* PDTest11LaunchTask.m in Sources */ = {isa = PBXBuildFile; fileRef = DD6CBC4722D7449F006E395B /* PDTest11LaunchTask.m */; };
-		DD6CBC4B22D744AA006E395B /* PDTest12LaunchTask.m in Sources */ = {isa = PBXBuildFile; fileRef = DD6CBC4A22D744AA006E395B /* PDTest12LaunchTask.m */; };
-		DD6CBC4E22D744B3006E395B /* PDTest13LaunchTask.m in Sources */ = {isa = PBXBuildFile; fileRef = DD6CBC4D22D744B3006E395B /* PDTest13LaunchTask.m */; };
-		DD6CBC5122D744BD006E395B /* PDTest14LaunchTask.m in Sources */ = {isa = PBXBuildFile; fileRef = DD6CBC5022D744BD006E395B /* PDTest14LaunchTask.m */; };
 		DDD98EE922EECF8500944A7F /* PDTaskDispatcher.m in Sources */ = {isa = PBXBuildFile; fileRef = DDD98EE822EECF8500944A7F /* PDTaskDispatcher.m */; };
 		E18BDD797FE95BF8408E54DC /* libPods-PDLaunchManagerUITests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 271497DB7F86574F1CF12B11 /* libPods-PDLaunchManagerUITests.a */; };
 /* End PBXBuildFile section */
@@ -63,6 +60,9 @@
 		C8192DA3AC9C8A27B22336D7 /* libPods-PDLaunchManagerTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-PDLaunchManagerTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		CB2B0E21DC661E3702EBAEC2 /* Pods-PDLaunchManager.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PDLaunchManager.release.xcconfig"; path = "Pods/Target Support Files/Pods-PDLaunchManager/Pods-PDLaunchManager.release.xcconfig"; sourceTree = "<group>"; };
 		D1D2488D775AE7BA89F549BE /* Pods-PDLaunchManagerTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PDLaunchManagerTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-PDLaunchManagerTests/Pods-PDLaunchManagerTests.release.xcconfig"; sourceTree = "<group>"; };
+		DD1F87152359A015001B8BCA /* launchTasks.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = launchTasks.plist; sourceTree = "<group>"; };
+		DD1F87172359B85A001B8BCA /* PDRootVCLaunchTask.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PDRootVCLaunchTask.h; sourceTree = "<group>"; };
+		DD1F87182359B85A001B8BCA /* PDRootVCLaunchTask.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PDRootVCLaunchTask.m; sourceTree = "<group>"; };
 		DD6CBBE222D73B77006E395B /* PDLaunchManager.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PDLaunchManager.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DD6CBBE522D73B77006E395B /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		DD6CBBE622D73B77006E395B /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -101,16 +101,6 @@
 		DD6CBC3E22D74482006E395B /* PDTest8LaunchTask.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PDTest8LaunchTask.m; sourceTree = "<group>"; };
 		DD6CBC4022D7448B006E395B /* PDTest9LaunchTask.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PDTest9LaunchTask.h; sourceTree = "<group>"; };
 		DD6CBC4122D7448B006E395B /* PDTest9LaunchTask.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PDTest9LaunchTask.m; sourceTree = "<group>"; };
-		DD6CBC4322D74494006E395B /* PDTest10LaunchTask.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PDTest10LaunchTask.h; sourceTree = "<group>"; };
-		DD6CBC4422D74494006E395B /* PDTest10LaunchTask.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PDTest10LaunchTask.m; sourceTree = "<group>"; };
-		DD6CBC4622D7449F006E395B /* PDTest11LaunchTask.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PDTest11LaunchTask.h; sourceTree = "<group>"; };
-		DD6CBC4722D7449F006E395B /* PDTest11LaunchTask.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PDTest11LaunchTask.m; sourceTree = "<group>"; };
-		DD6CBC4922D744AA006E395B /* PDTest12LaunchTask.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PDTest12LaunchTask.h; sourceTree = "<group>"; };
-		DD6CBC4A22D744AA006E395B /* PDTest12LaunchTask.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PDTest12LaunchTask.m; sourceTree = "<group>"; };
-		DD6CBC4C22D744B3006E395B /* PDTest13LaunchTask.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PDTest13LaunchTask.h; sourceTree = "<group>"; };
-		DD6CBC4D22D744B3006E395B /* PDTest13LaunchTask.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PDTest13LaunchTask.m; sourceTree = "<group>"; };
-		DD6CBC4F22D744BD006E395B /* PDTest14LaunchTask.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PDTest14LaunchTask.h; sourceTree = "<group>"; };
-		DD6CBC5022D744BD006E395B /* PDTest14LaunchTask.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PDTest14LaunchTask.m; sourceTree = "<group>"; };
 		DDD98EE722EECF8500944A7F /* PDTaskDispatcher.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PDTaskDispatcher.h; sourceTree = "<group>"; };
 		DDD98EE822EECF8500944A7F /* PDTaskDispatcher.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PDTaskDispatcher.m; sourceTree = "<group>"; };
 		E134F6BD33FEFD73EB6A24E3 /* Pods-PDLaunchManagerUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PDLaunchManagerUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-PDLaunchManagerUITests/Pods-PDLaunchManagerUITests.release.xcconfig"; sourceTree = "<group>"; };
@@ -241,6 +231,9 @@
 		DD6CBC2722D743AE006E395B /* Test */ = {
 			isa = PBXGroup;
 			children = (
+				DD1F87152359A015001B8BCA /* launchTasks.plist */,
+				DD1F87172359B85A001B8BCA /* PDRootVCLaunchTask.h */,
+				DD1F87182359B85A001B8BCA /* PDRootVCLaunchTask.m */,
 				DD6CBC2422D7436C006E395B /* PDTest1LaunchTask.h */,
 				DD6CBC2522D7436C006E395B /* PDTest1LaunchTask.m */,
 				DD6CBC2822D743C6006E395B /* PDTest2LaunchTask.h */,
@@ -259,16 +252,6 @@
 				DD6CBC3E22D74482006E395B /* PDTest8LaunchTask.m */,
 				DD6CBC4022D7448B006E395B /* PDTest9LaunchTask.h */,
 				DD6CBC4122D7448B006E395B /* PDTest9LaunchTask.m */,
-				DD6CBC4322D74494006E395B /* PDTest10LaunchTask.h */,
-				DD6CBC4422D74494006E395B /* PDTest10LaunchTask.m */,
-				DD6CBC4622D7449F006E395B /* PDTest11LaunchTask.h */,
-				DD6CBC4722D7449F006E395B /* PDTest11LaunchTask.m */,
-				DD6CBC4922D744AA006E395B /* PDTest12LaunchTask.h */,
-				DD6CBC4A22D744AA006E395B /* PDTest12LaunchTask.m */,
-				DD6CBC4C22D744B3006E395B /* PDTest13LaunchTask.h */,
-				DD6CBC4D22D744B3006E395B /* PDTest13LaunchTask.m */,
-				DD6CBC4F22D744BD006E395B /* PDTest14LaunchTask.h */,
-				DD6CBC5022D744BD006E395B /* PDTest14LaunchTask.m */,
 			);
 			path = Test;
 			sourceTree = "<group>";
@@ -379,6 +362,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DD1F87162359A016001B8BCA /* launchTasks.plist in Resources */,
 				DD6CBBF222D73B79006E395B /* LaunchScreen.storyboard in Resources */,
 				DD6CBBEF22D73B79006E395B /* Assets.xcassets in Resources */,
 				DD6CBBED22D73B77006E395B /* Main.storyboard in Resources */,
@@ -476,13 +460,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				DD6CBBEA22D73B77006E395B /* ViewController.m in Sources */,
-				DD6CBC4822D7449F006E395B /* PDTest11LaunchTask.m in Sources */,
-				DD6CBC4B22D744AA006E395B /* PDTest12LaunchTask.m in Sources */,
 				DD6CBBF522D73B79006E395B /* main.m in Sources */,
-				DD6CBC4522D74494006E395B /* PDTest10LaunchTask.m in Sources */,
 				DD6CBC3322D7440F006E395B /* PDTest4LaunchTask.m in Sources */,
 				DD6CBC3C22D74478006E395B /* PDTest7LaunchTask.m in Sources */,
-				DD6CBC4E22D744B3006E395B /* PDTest13LaunchTask.m in Sources */,
+				DD1F87192359B85A001B8BCA /* PDRootVCLaunchTask.m in Sources */,
 				DD6CBC2A22D743C6006E395B /* PDTest2LaunchTask.m in Sources */,
 				DD6CBBE722D73B77006E395B /* AppDelegate.m in Sources */,
 				DD6CBC3022D743F4006E395B /* PDTest3LaunchTask.m in Sources */,
@@ -494,7 +475,6 @@
 				DD6CBC2622D7436C006E395B /* PDTest1LaunchTask.m in Sources */,
 				DD6CBC3922D74470006E395B /* PDTest6LaunchTask.m in Sources */,
 				DD6CBC3F22D74482006E395B /* PDTest8LaunchTask.m in Sources */,
-				DD6CBC5122D744BD006E395B /* PDTest14LaunchTask.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

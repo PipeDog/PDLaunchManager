@@ -12,24 +12,65 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-/* Export task */
-typedef struct {
-    const char *taskname;
-    const char *classname;
-} PDLaunchTaskName;
+/**
 
-#define __PD_EXPORT_LAUNCH_TASK_EXT(taskname, classname) \
-__attribute__((used, section("__DATA , pd_exp_task"))) \
-static const PDLaunchTaskName __pd_exp_task_##taskname##__ = {#taskname, #classname};
-
-#define PD_EXPORT_LAUNCH_TASK_EXT(classname) __PD_EXPORT_LAUNCH_TASK_EXT(classname, classname)
-
+ *******************************************************
+            launch tasks config plist, @eg:
+ *******************************************************
+ <array>
+    <dict>
+        <key>type</key>
+        <string>async</string>
+        <key>tasks</key>
+        <array>
+            <string>PDTest9LaunchTask</string>
+            <string>PDTest8LaunchTask</string>
+            <string>PDTest7LaunchTask</string>
+        </array>
+    </dict>
+    <dict>
+        <key>type</key>
+        <string>barrier_group</string>
+        <key>tasks</key>
+        <array>
+            <string>PDTest1LaunchTask</string>
+            <string>PDTest2LaunchTask</string>
+            <string>PDTest3LaunchTask</string>
+        </array>
+    </dict>
+    <dict>
+        <key>type</key>
+        <string>sync</string>
+        <key>tasks</key>
+        <array>
+            <string>PDTest4LaunchTask</string>
+            <string>PDTest5LaunchTask</string>
+            <string>PDTest6LaunchTask</string>
+        </array>
+    </dict>
+ </array>
+ ********************************************************
+ 
+ keyword |  value
+ ------- | --------------
+         |  sync
+   type  |  async
+         |  barrier_group
+ ------- | --------------
+   tasks |  Class names for launch tasks
+ 
+*/
 
 @interface PDLaunchManager : NSObject
 
-@property (class, strong, readonly) PDLaunchManager *defaultManager;
+@property (nonatomic, copy) NSString *plistPath;
 
-@property (nonatomic, copy, readonly) NSArray<PDLaunchTask *> *launchTasks;
++ (PDLaunchManager *)defaultManager;
+
+- (NSArray<PDLaunchTask *> *)allTasks;
+
+// Call this method in '- [UIApplication application:didFinishLaunchingWithOptions:]'.
+- (void)launchWithOptions:(NSDictionary *)options;
 
 @end
 
