@@ -101,21 +101,12 @@
 
 #pragma mark - Screen orientation
 - (UIInterfaceOrientationMask)application:(UIApplication *)application supportedInterfaceOrientationsForWindow:(UIWindow *)window {
-    UIInterfaceOrientationMask mask = UIInterfaceOrientationMaskPortrait;
-    NSUInteger sentinel = 0;
-    
     for (id<PDLaunchTask> task in self.tasks) {
         if ([task respondsToSelector:@selector(application:supportedInterfaceOrientationsForWindow:)]) {
-            if (!sentinel) {
-                mask = [task application:application supportedInterfaceOrientationsForWindow:window];
-                sentinel += 1;
-            } else {
-                [task application:application supportedInterfaceOrientationsForWindow:window];
-            }
+            return [task application:application supportedInterfaceOrientationsForWindow:window];
         }
     }
-    
-    return mask;
+    return UIInterfaceOrientationMaskAll;
 }
 
 @end
