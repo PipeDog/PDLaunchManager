@@ -107,15 +107,15 @@
         return;
     }
 
-    if (self.launchTasks[taskName]) {
-        NSAssert(NO, @"Duplicate launch task for class name 「%@」!", taskName);
-        return;
-    }
-
-    id<PDLaunchTask> task = [[launchClass alloc] init];
+    id<PDLaunchTask> task = nil;
     
     Lock();
-    self.launchTasks[taskName] = task;
+    if (self.launchTasks[taskName]) {
+        NSAssert(NO, @"Duplicate launch task for class name 「%@」!", taskName);
+    } else {
+        task = [[launchClass alloc] init];
+        self.launchTasks[taskName] = task;
+    }
     Unlock();
     
     if ([task respondsToSelector:@selector(launchWithOptions:)]) {
