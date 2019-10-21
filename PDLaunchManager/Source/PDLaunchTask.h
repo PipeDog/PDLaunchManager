@@ -2,7 +2,7 @@
 //  PDLaunchTask.h
 //  PDLaunchManager
 //
-//  Created by liang on 2019/7/11.
+//  Created by liang on 2019/10/21.
 //  Copyright © 2019 liang. All rights reserved.
 //
 
@@ -11,9 +11,6 @@
 NS_ASSUME_NONNULL_BEGIN
 
 @protocol PDLaunchTask <UIApplicationDelegate>
-@end
-
-@interface PDLaunchTask : NSObject <PDLaunchTask>
 
 - (void)launchWithOptions:(NSDictionary *)options;
 

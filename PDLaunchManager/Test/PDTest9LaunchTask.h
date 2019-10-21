@@ -10,7 +10,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface PDTest9LaunchTask : PDLaunchTask
+@interface PDTest9LaunchTask : NSObject <PDLaunchTask>
 
 @end
 

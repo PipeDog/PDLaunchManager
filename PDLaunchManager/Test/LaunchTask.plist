@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>groupList</key>
+	<array>
+		<dict>
+			<key>tasks</key>
+			<array>
+				<string>PDTest9LaunchTask</string>
+				<string>PDTest8LaunchTask</string>
+				<string>PDTest7LaunchTask</string>
+			</array>
+			<key>type</key>
+			<string>barrier</string>
+		</dict>
+		<dict>
+			<key>type</key>
+			<string>async</string>
+			<key>tasks</key>
+			<array>
+				<string>PDTest6LaunchTask</string>
+				<string>PDTest5LaunchTask</string>
+				<string>PDTest4LaunchTask</string>
+			</array>
+		</dict>
+		<dict>
+			<key>type</key>
+			<string>sync</string>
+			<key>tasks</key>
+			<array>
+				<string>PDRootVCLaunchTask</string>
+				<string>PDTest3LaunchTask</string>
+				<string>PDTest2LaunchTask</string>
+				<string>PDTest1LaunchTask</string>
+			</array>
+		</dict>
+	</array>
+</dict>
+</plist>

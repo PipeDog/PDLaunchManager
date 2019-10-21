@@ -18,12 +18,22 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
-    NSString *plistPath = [[NSBundle mainBundle] pathForResource:@"launchTasks" ofType:@"plist"];
-
-    PDLaunchManager *launchManager = [PDLaunchManager defaultManager];
-    launchManager.plistPath = plistPath;
-    [launchManager launchWithOptions:launchOptions];
+    NSString *plistPath = [[NSBundle mainBundle] pathForResource:@"LaunchTask" ofType:@"plist"];
     
+    NSDictionary *(^collectLaunchTasks)(void) = ^{
+        if (@available(iOS 11.0, *)) {
+            NSURL *URL = [NSURL fileURLWithPath:plistPath];
+            return [NSDictionary dictionaryWithContentsOfURL:URL error:nil];
+        } else {
+            // Fallback on earlier versions
+            return [NSDictionary dictionaryWithContentsOfFile:plistPath];
+        }
+    };
+    
+    NSDictionary *launchTasks = collectLaunchTasks();
+    
+    PDLaunchManager *launchManager = [PDLaunchManager defaultManager];
+    [launchManager performLaunchTasks:launchTasks options:launchOptions];
     return YES;
 }
 

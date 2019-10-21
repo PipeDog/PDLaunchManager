@@ -7,14 +7,15 @@
 //
 
 #import "PDLaunchManager.h"
-#import "PDLaunchTask.h"
+
+#define Lock() dispatch_semaphore_wait(self->_lock, DISPATCH_TIME_FOREVER)
+#define Unlock() dispatch_semaphore_signal(self->_lock)
 
 @interface PDLaunchManager () {
     dispatch_semaphore_t _lock;
 }
 
-@property (nonatomic, strong) NSMutableArray<PDLaunchTask *> *launchTasks;
-@property (nonatomic, copy) NSDictionary *launchOptions;
+@property (nonatomic, strong) NSMutableDictionary<NSString *, id<PDLaunchTask>> *launchTasks;
 
 @end
 
@@ -32,76 +33,61 @@
 - (instancetype)init {
     self = [super init];
     if (self) {
-        _launchTasks = [NSMutableArray array];
         _lock = dispatch_semaphore_create(1);
+        _launchTasks = [NSMutableDictionary dictionary];
     }
     return self;
 }
 
 #pragma mark - Execute Methods
-- (void)launchWithOptions:(NSDictionary *)options {
-    self.launchOptions = options;
+- (void)performLaunchTasks:(NSDictionary *)launchTasks options:(NSDictionary *)launchOptions {
+    NSArray *groupList = launchTasks[@"groupList"];
     
-    NSArray *(^collectLaunchTasks)(void) = ^{
-        if (@available(iOS 11.0, *)) {
-            NSURL *URL = [NSURL fileURLWithPath:self.plistPath];
-            return [NSArray arrayWithContentsOfURL:URL error:nil];
-        } else {
-            // Fallback on earlier versions
-            return [NSArray arrayWithContentsOfFile:self.plistPath];
-        }
-    };
-    
-    NSArray *launchTasks = collectLaunchTasks();
-    if (!launchTasks.count) {
-        return;
-    }
-
-    for (NSDictionary *dict in launchTasks) {
-        NSString *type = dict[@"type"];
-        NSArray *tasks = dict[@"tasks"];
+    for (NSDictionary *group in groupList) {
+        NSString *type = group[@"type"];
+        NSArray *tasks = group[@"tasks"];
         
         if ([type isEqualToString:@"sync"]) {
-            [self syncLaunchTasks:tasks];
+            [self performSyncGroupTasks:tasks options:launchOptions];
         } else if ([type isEqualToString:@"async"]) {
-            [self asyncLaunchTasks:tasks];
-        } else if ([type isEqualToString:@"barrier_group"]) {
-            [self barrierGroupLaunchTasks:tasks];
+            [self performAsyncGroupTasks:tasks options:launchOptions];
+        } else if ([type isEqualToString:@"barrier"]) {
+            [self performBarrierGroupTasks:tasks options:launchOptions];
         } else {
             NSAssert(NO, @"Invalid `type`!");
         }
     }
 }
 
-- (NSArray<PDLaunchTask *> *)allTasks {
-    return [self.launchTasks copy];
+- (NSArray<id<PDLaunchTask>> *)allTasks {
+    return self.launchTasks.allValues;
 }
 
 #pragma mark - Private Methods
-- (void)syncLaunchTasks:(NSArray<NSString *> *)classnames {
-    for (NSString *classname in classnames) {
-        [self launchTask:classname];
+- (void)performSyncGroupTasks:(NSArray *)launchTasks options:(NSDictionary *)launchOptions {
+    for (NSString *taskName in launchTasks) {
+        [self performLaunchTaskWithTaskName:taskName options:launchOptions];
     }
 }
 
-- (void)asyncLaunchTasks:(NSArray<NSString *> *)classnames {
+- (void)performAsyncGroupTasks:(NSArray *)launchTasks options:(NSDictionary *)launchOptions {
     dispatch_queue_t queue = dispatch_queue_create("com.launchTaskQueue.async", DISPATCH_QUEUE_CONCURRENT);
     
-    for (NSString *classname in classnames) {
+    for (NSString *taskName in launchTasks) {
         dispatch_async(queue, ^{
-            [self launchTask:classname];
+            [self performLaunchTaskWithTaskName:taskName options:launchOptions];
         });
     }
 }
 
-- (void)barrierGroupLaunchTasks:(NSArray<NSString *> *)classnames {
-    dispatch_queue_t queue = dispatch_queue_create("com.launchTaskQueue.barrierGroup", DISPATCH_QUEUE_CONCURRENT);
+- (void)performBarrierGroupTasks:(NSArray *)launchTasks options:(NSDictionary *)launchOptions {
+    dispatch_queue_t queue = dispatch_queue_create("com.launchTaskQueue.barrier", DISPATCH_QUEUE_CONCURRENT);
     dispatch_group_t group = dispatch_group_create();
     
-    for (NSString *classname in classnames) {
+    for (NSString *taskName in launchTasks) {
         dispatch_group_enter(group);
         dispatch_group_async(group, queue, ^{
-            [self launchTask:classname];
+            [self performLaunchTaskWithTaskName:taskName options:launchOptions];
             dispatch_group_leave(group);
         });
     }
@@ -109,15 +95,32 @@
     dispatch_group_wait(group, DISPATCH_TIME_FOREVER);
 }
 
-- (void)launchTask:(NSString *)classname {
-    Class cls = NSClassFromString(classname);
-    PDLaunchTask *task = [[cls alloc] init];
+- (void)performLaunchTaskWithTaskName:(NSString *)taskName options:(NSDictionary *)launchOptions {
+    if (!taskName.length) {
+        NSAssert(NO, @"Launch class can not be nil!");
+        return;
+    }
     
-    dispatch_semaphore_wait(self->_lock, DISPATCH_TIME_FOREVER);
-    [self.launchTasks addObject:task];
-    dispatch_semaphore_signal(self->_lock);
+    Class launchClass = NSClassFromString(taskName);
+    if (!launchClass) {
+        NSAssert(NO, @"Launch class does not exist!");
+        return;
+    }
+
+    if (self.launchTasks[taskName]) {
+        NSAssert(NO, @"Duplicate launch task for class name 「%@」!", taskName);
+        return;
+    }
+
+    id<PDLaunchTask> task = [[launchClass alloc] init];
     
-    [task launchWithOptions:self.launchOptions];
+    Lock();
+    self.launchTasks[taskName] = task;
+    Unlock();
+    
+    if ([task respondsToSelector:@selector(launchWithOptions:)]) {
+        [task launchWithOptions:launchOptions];
+    }
 }
 
 @end

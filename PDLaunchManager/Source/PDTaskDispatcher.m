@@ -21,13 +21,13 @@
     return __globalDispatcher;
 }
 
-- (NSArray<PDLaunchTask *> *)tasks {
+- (NSArray<id<PDLaunchTask>> *)tasks {
     return [[PDLaunchManager defaultManager] allTasks];
 }
 
 #pragma mark -  App States Methods
 - (void)applicationDidBecomeActive:(UIApplication *)application {
-    for (PDLaunchTask *task in self.tasks) {
+    for (id<PDLaunchTask> task in self.tasks) {
         if ([task respondsToSelector:@selector(applicationDidBecomeActive:)]) {
             [task applicationDidBecomeActive:application];
         }
@@ -35,7 +35,7 @@
 }
 
 - (void)applicationDidEnterBackground:(UIApplication *)application {
-    for (PDLaunchTask *task in self.tasks) {
+    for (id<PDLaunchTask> task in self.tasks) {
         if ([task respondsToSelector:@selector(applicationDidEnterBackground:)]) {
             [task applicationDidEnterBackground:application];
         }
@@ -43,7 +43,7 @@
 }
 
 - (void)applicationWillResignActive:(UIApplication *)application {
-    for (PDLaunchTask *task in self.tasks) {
+    for (id<PDLaunchTask> task in self.tasks) {
         if ([task respondsToSelector:@selector(applicationWillResignActive:)]) {
             [task applicationWillResignActive:application];
         }
@@ -51,7 +51,7 @@
 }
 
 - (void)applicationWillEnterForeground:(UIApplication *)application {
-    for (PDLaunchTask *task in self.tasks) {
+    for (id<PDLaunchTask> task in self.tasks) {
         if ([task respondsToSelector:@selector(applicationWillEnterForeground:)]) {
             [task applicationWillEnterForeground:application];
         }
@@ -59,7 +59,7 @@
 }
 
 - (void)applicationWillTerminate:(UIApplication *)application {
-    for (PDLaunchTask *task in self.tasks) {
+    for (id<PDLaunchTask> task in self.tasks) {
         if ([task respondsToSelector:@selector(applicationWillTerminate:)]) {
             [task applicationWillTerminate:application];
         }
@@ -68,7 +68,7 @@
 
 #pragma mark - Remote Notification
 - (void)application:(UIApplication *)application didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken {
-    for (PDLaunchTask *task in self.tasks) {
+    for (id<PDLaunchTask> task in self.tasks) {
         if ([task respondsToSelector:@selector(application:didRegisterForRemoteNotificationsWithDeviceToken:)]) {
             [task application:application didRegisterForRemoteNotificationsWithDeviceToken:deviceToken];
         }
@@ -76,7 +76,7 @@
 }
 
 - (void)application:(UIApplication *)application didFailToRegisterForRemoteNotificationsWithError:(NSError *)error {
-    for (PDLaunchTask *task in self.tasks) {
+    for (id<PDLaunchTask> task in self.tasks) {
         if ([task respondsToSelector:@selector(application:didFailToRegisterForRemoteNotificationsWithError:)]) {
             [task application:application didFailToRegisterForRemoteNotificationsWithError:error];
         }
@@ -84,7 +84,7 @@
 }
 
 - (void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo {
-    for (PDLaunchTask *task in self.tasks) {
+    for (id<PDLaunchTask> task in self.tasks) {
         if ([task respondsToSelector:@selector(application:didReceiveRemoteNotification:)]) {
             [task application:application didReceiveRemoteNotification:userInfo];
         }
@@ -92,7 +92,7 @@
 }
 
 - (void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo fetchCompletionHandler:(void (^)(UIBackgroundFetchResult))completionHandler {
-    for (PDLaunchTask *task in self.tasks) {
+    for (id<PDLaunchTask> task in self.tasks) {
         if ([task respondsToSelector:@selector(application:didReceiveRemoteNotification:fetchCompletionHandler:)]) {
             [task application:application didReceiveRemoteNotification:userInfo fetchCompletionHandler:completionHandler];
         }
@@ -104,7 +104,7 @@
     UIInterfaceOrientationMask mask = UIInterfaceOrientationMaskPortrait;
     NSUInteger sentinel = 0;
     
-    for (PDLaunchTask *task in self.tasks) {
+    for (id<PDLaunchTask> task in self.tasks) {
         if ([task respondsToSelector:@selector(application:supportedInterfaceOrientationsForWindow:)]) {
             if (!sentinel) {
                 mask = [task application:application supportedInterfaceOrientationsForWindow:window];
