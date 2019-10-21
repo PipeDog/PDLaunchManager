@@ -7,10 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <UserNotifications/UserNotifications.h>
 
 NS_ASSUME_NONNULL_BEGIN
 
-@protocol PDLaunchTask <UIApplicationDelegate>
+@protocol PDLaunchTask <UIApplicationDelegate, UNUserNotificationCenterDelegate>
 
 - (void)launchWithOptions:(NSDictionary *)options;
 
