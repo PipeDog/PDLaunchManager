@@ -66,6 +66,17 @@
     }
 }
 
+#pragma mark - Deep Link
+- (BOOL)application:(UIApplication *)app openURL:(NSURL *)url options:(NSDictionary<UIApplicationOpenURLOptionsKey,id> *)options {
+    BOOL ret = NO;
+    for (id<PDLaunchTask> task in self.tasks) {
+        if ([task respondsToSelector:@selector(application:openURL:options:)]) {
+            ret = ret || [task application:app openURL:url options:options];
+        }
+    }
+    return ret;
+}
+
 #pragma mark - Remote Notification
 - (void)application:(UIApplication *)application didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken {
     for (id<PDLaunchTask> task in self.tasks) {
