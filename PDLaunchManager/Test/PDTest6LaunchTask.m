@@ -10,7 +10,7 @@
 
 @implementation PDTest6LaunchTask
 
-- (void)launchWithOptions:(NSDictionary *)options {
+- (void)launchWithOptions:(NSDictionary *)launchOptions {
     NSLog(@"%@", [self class]);
 }
 

@@ -10,7 +10,7 @@
 
 @implementation PDTest2LaunchTask
 
-- (void)launchWithOptions:(NSDictionary *)options {
+- (void)launchWithOptions:(NSDictionary *)launchOptions {
     int i = 100000;
     
     while (i > 0) {
