@@ -15,7 +15,7 @@
     dispatch_semaphore_t _lock;
 }
 
-@property (nonatomic, strong) NSMutableDictionary<NSString *, id<PDLaunchTask>> *launchTasks;
+@property (nonatomic, strong) NSMutableDictionary<NSString *, PDLaunchTask *> *launchTasks;
 
 @end
 
@@ -59,7 +59,7 @@
     }
 }
 
-- (NSArray<id<PDLaunchTask>> *)allTasks {
+- (NSArray<PDLaunchTask *> *)allTasks {
     return self.launchTasks.allValues;
 }
 
@@ -107,20 +107,19 @@
         return;
     }
 
-    id<PDLaunchTask> task = nil;
+    PDLaunchTask *task = nil;
     
     Lock();
     if (self.launchTasks[taskName]) {
         NSAssert(NO, @"Duplicate launch task for class name 「%@」!", taskName);
     } else {
         task = [[launchClass alloc] init];
-        self.launchTasks[taskName] = task;
+        
+        if (task.keep) { self.launchTasks[taskName] = task; }
     }
     Unlock();
     
-    if ([task respondsToSelector:@selector(launchWithOptions:)]) {
-        [task launchWithOptions:launchOptions];
-    }
+    [task launchWithOptions:launchOptions];
 }
 
 @end

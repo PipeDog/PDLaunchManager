@@ -29,6 +29,7 @@
 		DD6CBC3C22D74478006E395B /* PDTest7LaunchTask.m in Sources */ = {isa = PBXBuildFile; fileRef = DD6CBC3B22D74478006E395B /* PDTest7LaunchTask.m */; };
 		DD6CBC3F22D74482006E395B /* PDTest8LaunchTask.m in Sources */ = {isa = PBXBuildFile; fileRef = DD6CBC3E22D74482006E395B /* PDTest8LaunchTask.m */; };
 		DD6CBC4222D7448B006E395B /* PDTest9LaunchTask.m in Sources */ = {isa = PBXBuildFile; fileRef = DD6CBC4122D7448B006E395B /* PDTest9LaunchTask.m */; };
+		DDD909632429EE8A00F45A03 /* PDLaunchTask.m in Sources */ = {isa = PBXBuildFile; fileRef = DDD909622429EE8A00F45A03 /* PDLaunchTask.m */; };
 		DDD98EE922EECF8500944A7F /* PDTaskDispatcher.m in Sources */ = {isa = PBXBuildFile; fileRef = DDD98EE822EECF8500944A7F /* PDTaskDispatcher.m */; };
 		E18BDD797FE95BF8408E54DC /* libPods-PDLaunchManagerUITests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 271497DB7F86574F1CF12B11 /* libPods-PDLaunchManagerUITests.a */; };
 /* End PBXBuildFile section */
@@ -62,7 +63,6 @@
 		DD1F87172359B85A001B8BCA /* PDRootVCLaunchTask.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PDRootVCLaunchTask.h; sourceTree = "<group>"; };
 		DD1F87182359B85A001B8BCA /* PDRootVCLaunchTask.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PDRootVCLaunchTask.m; sourceTree = "<group>"; };
 		DD1F872E235D92B1001B8BCA /* LaunchTask.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = LaunchTask.plist; sourceTree = "<group>"; };
-		DD1F8730235D9E22001B8BCA /* PDLaunchTask.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PDLaunchTask.h; sourceTree = "<group>"; };
 		DD6CBBE222D73B77006E395B /* PDLaunchManager.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PDLaunchManager.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DD6CBBE522D73B77006E395B /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		DD6CBBE622D73B77006E395B /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -99,6 +99,8 @@
 		DD6CBC3E22D74482006E395B /* PDTest8LaunchTask.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PDTest8LaunchTask.m; sourceTree = "<group>"; };
 		DD6CBC4022D7448B006E395B /* PDTest9LaunchTask.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PDTest9LaunchTask.h; sourceTree = "<group>"; };
 		DD6CBC4122D7448B006E395B /* PDTest9LaunchTask.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PDTest9LaunchTask.m; sourceTree = "<group>"; };
+		DDD909612429EE8A00F45A03 /* PDLaunchTask.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PDLaunchTask.h; sourceTree = "<group>"; };
+		DDD909622429EE8A00F45A03 /* PDLaunchTask.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PDLaunchTask.m; sourceTree = "<group>"; };
 		DDD98EE722EECF8500944A7F /* PDTaskDispatcher.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PDTaskDispatcher.h; sourceTree = "<group>"; };
 		DDD98EE822EECF8500944A7F /* PDTaskDispatcher.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PDTaskDispatcher.m; sourceTree = "<group>"; };
 		E134F6BD33FEFD73EB6A24E3 /* Pods-PDLaunchManagerUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PDLaunchManagerUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-PDLaunchManagerUITests/Pods-PDLaunchManagerUITests.release.xcconfig"; sourceTree = "<group>"; };
@@ -216,7 +218,8 @@
 		DD6CBC1722D73B84006E395B /* Source */ = {
 			isa = PBXGroup;
 			children = (
-				DD1F8730235D9E22001B8BCA /* PDLaunchTask.h */,
+				DDD909612429EE8A00F45A03 /* PDLaunchTask.h */,
+				DDD909622429EE8A00F45A03 /* PDLaunchTask.m */,
 				DD6CBC1E22D73BBC006E395B /* PDLaunchManager.h */,
 				DD6CBC1F22D73BBC006E395B /* PDLaunchManager.m */,
 				DDD98EE722EECF8500944A7F /* PDTaskDispatcher.h */,
@@ -467,6 +470,7 @@
 				DDD98EE922EECF8500944A7F /* PDTaskDispatcher.m in Sources */,
 				DD6CBC4222D7448B006E395B /* PDTest9LaunchTask.m in Sources */,
 				DD6CBC2022D73BBC006E395B /* PDLaunchManager.m in Sources */,
+				DDD909632429EE8A00F45A03 /* PDLaunchTask.m in Sources */,
 				DD6CBC3622D74452006E395B /* PDTest5LaunchTask.m in Sources */,
 				DD6CBC2622D7436C006E395B /* PDTest1LaunchTask.m in Sources */,
 				DD6CBC3922D74470006E395B /* PDTest6LaunchTask.m in Sources */,

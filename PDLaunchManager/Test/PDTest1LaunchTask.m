@@ -10,6 +10,10 @@
 
 @implementation PDTest1LaunchTask
 
+- (BOOL)keep {
+    return YES;
+}
+
 - (void)launchWithOptions:(NSDictionary *)launchOptions {
     int i = 10000;
     

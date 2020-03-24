@@ -15,7 +15,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 + (PDLaunchManager *)defaultManager;
 
-- (NSArray<id<PDLaunchTask>> *)allTasks;
+- (NSArray<PDLaunchTask *> *)allTasks;
 
 /**
 

@@ -11,6 +11,10 @@
 
 @implementation PDRootVCLaunchTask
 
+- (BOOL)keep {
+    return YES;
+}
+
 - (void)launchWithOptions:(NSDictionary *)launchOptions {
     UIViewController *vc = [[UIViewController alloc] init];
     vc.view.backgroundColor = [UIColor colorWithRed:100/255.f green:100/255.f blue:100/255.f alpha:1.f];

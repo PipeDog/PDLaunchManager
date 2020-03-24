@@ -10,7 +10,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface PDRootVCLaunchTask : NSObject <PDLaunchTask>
+@interface PDRootVCLaunchTask : PDLaunchTask
 
 @end
 
